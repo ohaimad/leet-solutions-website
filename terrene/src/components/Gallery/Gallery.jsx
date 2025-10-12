@@ -1,6 +1,6 @@
 "use client";
 import "./Gallery.css";
-import items from "./items";
+import teamMembers, { getMemberByIndex, getImagePath, getImageExtensions } from "./items";
 
 import { useEffect, useRef, useState } from "react";
 
@@ -135,7 +135,7 @@ export default function Gallery() {
     };
   }, []);
 
-  const itemCount = 20;
+  const itemCount = teamMembers.length;
   const itemGap = 150;
   const columns = 4;
   const itemWidth = 120;
@@ -174,7 +174,14 @@ export default function Gallery() {
     const projectTitleElement = projectTitleRef.current.querySelector("p");
 
     if (titleSplit) titleSplit.revert();
-    projectTitleElement.textContent = title;
+    
+    // Handle multi-line titles (name/role and department)
+    const lines = title.split('\n');
+    if (lines.length > 1) {
+      projectTitleElement.innerHTML = `${lines[0]}<br><span class="department-subtitle">${lines[1]}</span>`;
+    } else {
+      projectTitleElement.textContent = title;
+    }
 
     stateRef.current.titleSplit = new SplitType(projectTitleElement, {
       types: "words",
@@ -237,35 +244,35 @@ export default function Gallery() {
         ? -100
         : -200
       : isMobile
-      ? 100
-      : 200;
+        ? 100
+        : 200;
     const directionBufferY = movingDown
       ? isMobile
         ? -100
         : -200
       : isMobile
-      ? 100
-      : 200;
+        ? 100
+        : 200;
 
     const startCol = Math.floor(
       (-state.currentX - viewWidth / 2 + (movingRight ? directionBufferX : 0)) /
-        (itemWidth + itemGap)
+      (itemWidth + itemGap)
     );
     const endCol = Math.ceil(
       (-state.currentX +
         viewWidth * (isMobile ? 1.0 : 1.2) +
         (!movingRight ? directionBufferX : 0)) /
-        (itemWidth + itemGap)
+      (itemWidth + itemGap)
     );
     const startRow = Math.floor(
       (-state.currentY - viewHeight / 2 + (movingDown ? directionBufferY : 0)) /
-        (itemHeight + itemGap)
+      (itemHeight + itemGap)
     );
     const endRow = Math.ceil(
       (-state.currentY +
         viewHeight * (isMobile ? 1.0 : 1.2) +
         (!movingDown ? directionBufferY : 0)) /
-        (itemHeight + itemGap)
+      (itemHeight + itemGap)
     );
 
     const currentItems = new Set();
@@ -294,10 +301,25 @@ export default function Gallery() {
           gsap.set(item, { scale: 0 });
         }
 
-        const itemNum = (Math.abs(row * columns + col) % itemCount) + 1;
+        // Get team member data based on grid position
+        const memberIndex = Math.abs(row * columns + col) % teamMembers.length;
+        const member = teamMembers[memberIndex];
+
         const img = document.createElement("img");
-        img.src = `/archive/archive-${itemNum}.jpg`;
-        img.alt = `Image ${itemNum}`;
+        img.src = getImagePath(member.name);
+        img.alt = member.name;
+        
+        img.onerror = function () {
+          // Fallback to the first available image
+          this.src = '/team-members/Ahmed el montassir.jpg';
+          console.warn(`Image not found for ${member.name}, using fallback`);
+        };
+
+        // Store member data in the item element for later use
+        item.dataset.memberName = member.name;
+        item.dataset.memberRole = member.role;
+        item.dataset.memberDepartment = member.department;
+
         item.appendChild(img);
 
         item.addEventListener("click", (e) => {
@@ -348,12 +370,14 @@ export default function Gallery() {
     state.canDrag = false;
     container.style.cursor = "auto";
 
-    const imgSrc = item.querySelector("img").src;
-    const imgMatch = imgSrc.match(/\/img(\d+)\.jpg/);
-    const imgNum = imgMatch ? parseInt(imgMatch[1]) : 1;
-    const titleIndex = (imgNum - 1) % items.length;
+    // Get member data from the item's dataset
+    const memberName = item.dataset.memberName;
+    const memberRole = item.dataset.memberRole;
+    const memberDepartment = item.dataset.memberDepartment;
 
-    setAndAnimateTitle(items[titleIndex]);
+    // Create a formatted title with name, role, and department
+    const titleText = `${memberName} - ${memberRole}\n${memberDepartment}`;
+    setAndAnimateTitle(titleText);
     item.style.visibility = "hidden";
 
     const rect = item.getBoundingClientRect();
@@ -485,7 +509,7 @@ export default function Gallery() {
       const now = Date.now();
       const distMoved = Math.sqrt(
         Math.pow(state.currentX - state.lastX, 2) +
-          Math.pow(state.currentY - state.lastY, 2)
+        Math.pow(state.currentY - state.lastY, 2)
       );
 
       const isMobile = window.innerWidth <= 1000;

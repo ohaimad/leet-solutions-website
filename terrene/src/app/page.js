@@ -411,7 +411,7 @@ export default function Home() {
                   deas into impactful results.
                 </h3>
               </Copy>
-              <AnimatedButton label="Explore Projects" route="blueprints" />
+              <AnimatedButton label="Explore Projects" route="projects" />
             </div>
           </div>
         </div>

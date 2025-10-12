@@ -20,13 +20,13 @@ const Spotlight = () => {
 
   // NOTE: These values are interconnected - when speed changes, it affects when images finish their movement, which also affects the gap between images. When you change the number of items in spotlightItems array, you'll need to adjust these config settings together. Test different combinations until you find the right balance that looks good.
   const config = {
-    gap: 0.208,
+    gap: 0.05,
     speed: 0.3,
-    arcRadius: 500,
+    arcRadius: 200,
   };
 
   const spotlightItems = [
-    { name: "Courtyard Stillness", img: "/spotlight/spotlight-img-1.jpg" },
+    { name: "Ahmed EL Montassir", img: "/profiles/profile-1.jpg" },
     { name: "Blue Horizon", img: "/spotlight/spotlight-img-2.jpg" },
     { name: "Stone Quiet", img: "/spotlight/spotlight-img-3.jpg" },
     { name: "Amber Niche", img: "/spotlight/spotlight-img-4.jpg" },
@@ -52,25 +52,28 @@ const Spotlight = () => {
     gsap.registerPlugin(ScrollTrigger);
 
     const initializeSpotlight = () => {
-      const titlesContainer = titlesContainerRef.current;
-      const imagesContainer = imagesContainerRef.current;
-      const spotlightHeader = spotlightHeaderRef.current;
-      const titlesContainerElement = titlesContainerElementRef.current;
-      const introTextElements = introTextElementsRef.current;
-      const imageElements = imageElementsRef.current;
+      try {
+        const titlesContainer = titlesContainerRef.current;
+        const imagesContainer = imagesContainerRef.current;
+        const spotlightHeader = spotlightHeaderRef.current;
+        const titlesContainerElement = titlesContainerElementRef.current;
+        const introTextElements = introTextElementsRef.current;
+        const imageElements = imageElementsRef.current;
 
-      if (
-        !titlesContainer ||
-        !imagesContainer ||
-        !spotlightHeader ||
-        !titlesContainerElement
-      ) {
-        return false;
-      }
+        if (
+          !titlesContainer ||
+          !imagesContainer ||
+          !spotlightHeader ||
+          !titlesContainerElement ||
+          !titlesContainer.isConnected ||
+          !imagesContainer.isConnected
+        ) {
+          return false;
+        }
 
-      titlesContainer.innerHTML = "";
-      imagesContainer.innerHTML = "";
-      imageElements.length = 0;
+        titlesContainer.innerHTML = "";
+        imagesContainer.innerHTML = "";
+        imageElements.length = 0;
 
       spotlightItems.forEach((item, index) => {
         const titleElement = document.createElement("h1");
@@ -95,7 +98,11 @@ const Spotlight = () => {
         return false;
       }
 
-      return true;
+        return true;
+      } catch (error) {
+        console.warn('Spotlight initialization error:', error);
+        return false;
+      }
     };
 
     let initialized = initializeSpotlight();
@@ -280,8 +287,38 @@ const Spotlight = () => {
     });
 
     return () => {
-      if (scrollTriggerRef.current) {
-        scrollTriggerRef.current.kill();
+      try {
+        // Kill the main scroll trigger
+        if (scrollTriggerRef.current) {
+          scrollTriggerRef.current.kill();
+          scrollTriggerRef.current = null;
+        }
+        
+        // Kill any remaining GSAP animations
+        if (imageElementsRef.current.length > 0) {
+          gsap.killTweensOf(imageElementsRef.current);
+        }
+        if (titleElementsRef.current.length > 0) {
+          gsap.killTweensOf(titleElementsRef.current);
+        }
+        if (introTextElementsRef.current.length > 0) {
+          gsap.killTweensOf(introTextElementsRef.current);
+        }
+        
+        // Clear all refs
+        imageElementsRef.current = [];
+        titleElementsRef.current = [];
+        introTextElementsRef.current = [];
+        
+        // Kill all ScrollTriggers to be safe
+        ScrollTrigger.getAll().forEach((trigger) => {
+          if (trigger.trigger && trigger.trigger.closest('.spotlight')) {
+            trigger.kill();
+          }
+        });
+        
+      } catch (error) {
+        console.warn('Spotlight cleanup error:', error);
       }
     };
   }, []);
