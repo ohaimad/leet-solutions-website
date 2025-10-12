@@ -174,14 +174,7 @@ export default function Gallery() {
     const projectTitleElement = projectTitleRef.current.querySelector("p");
 
     if (titleSplit) titleSplit.revert();
-    
-    // Handle multi-line titles (name/role and department)
-    const lines = title.split('\n');
-    if (lines.length > 1) {
-      projectTitleElement.innerHTML = `${lines[0]}<br><span class="department-subtitle">${lines[1]}</span>`;
-    } else {
-      projectTitleElement.textContent = title;
-    }
+    projectTitleElement.textContent = title;
 
     stateRef.current.titleSplit = new SplitType(projectTitleElement, {
       types: "words",
@@ -308,7 +301,7 @@ export default function Gallery() {
         const img = document.createElement("img");
         img.src = getImagePath(member.name);
         img.alt = member.name;
-        
+
         img.onerror = function () {
           // Fallback to the first available image
           this.src = '/team-members/Ahmed el montassir.jpg';
@@ -375,8 +368,8 @@ export default function Gallery() {
     const memberRole = item.dataset.memberRole;
     const memberDepartment = item.dataset.memberDepartment;
 
-    // Create a formatted title with name, role, and department
-    const titleText = `${memberName} - ${memberRole}\n${memberDepartment}`;
+    // Create a formatted title with name and role
+    const titleText = `${memberName} - ${memberRole}`;
     setAndAnimateTitle(titleText);
     item.style.visibility = "hidden";
 

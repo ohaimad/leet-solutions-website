@@ -418,7 +418,7 @@ export default function Home() {
       </section>
       <CTAWindow
         img="/home/1337.jpg"
-        header="1337"
+        img2="/logos/1337-green.png"
         callout="I CODE, YOU CODE, WE CODE…"
         description="1337 is the first to provide IT training in Morocco, completely free of charge, open and accessible to anyone between the ages of 18 and 30. No need for an IT degree, or of having undergone extensive IT training."
       />

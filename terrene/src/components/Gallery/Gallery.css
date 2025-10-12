@@ -92,16 +92,3 @@
   transform: translateY(0%);
   will-change: transform;
 }
-
-.project-title .department-subtitle {
-  display: block;
-  font-size: 1.5rem;
-  color: #AFDCB1;
-  font-weight: 300;
-  margin-top: 0.5rem;
-  opacity: 0.9;
-}
-
-.project-title .department-subtitle .word {
-  font-size: 1.5rem;
-}

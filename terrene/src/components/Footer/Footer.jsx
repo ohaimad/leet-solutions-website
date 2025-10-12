@@ -100,10 +100,10 @@ const Footer = () => {
                   <h3>test</h3>
                 </a> */}
                 <a
-                  href="/blueprints"
+                  href="/connect"
                   onClick={(e) => {
                     e.preventDefault();
-                    navigateWithTransition("/blueprints");
+                    navigateWithTransition("/connect");
                   }}
                 >
                   <h3>Connect</h3>

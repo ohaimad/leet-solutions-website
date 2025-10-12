@@ -3,7 +3,7 @@ import "./CTAWindow.css";
 
 import Copy from "../Copy/Copy";
 
-const CTAWindow = ({ img, header, callout, description }) => {
+const CTAWindow = ({ img, img2, callout, description }) => {
   return (
     <section className="cta-window">
       <div className="container">
@@ -13,7 +13,7 @@ const CTAWindow = ({ img, header, callout, description }) => {
         <div className="cta-window-img-overlay"></div>
         <div className="cta-window-header" onClick={() => { window.open('https://1337.ma/en/') }}>
           <Copy delay={0.1}>
-            <h1>{header}</h1>
+            <img src={img2} alt="" />
           </Copy>
         </div>
         <div className="cta-window-footer">

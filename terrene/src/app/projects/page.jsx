@@ -42,20 +42,20 @@ const page = () => {
             <div className="more-facts-items">
               <div className="fact">
                 <Copy delay={0.1}>
-                  <p>Projects Delivered</p>
-                  <h2>+36</h2>
+                  <p>Projects</p>
+                  <h2>36+</h2>
                 </Copy>
               </div>
               <div className="fact">
                 <Copy delay={0.3}>
                   <p>Departments</p>
-                  <h2>+04</h2>
+                  <h2>04+</h2>
                 </Copy>
               </div>
               <div className="fact">
                 <Copy delay={0.4}>
                   <p>Team members</p>
-                  <h2>+40</h2>
+                  <h2>40+</h2>
                 </Copy>
               </div>
               {/* <div className="fact">
@@ -66,8 +66,8 @@ const page = () => {
               </div> */}
               <div className="fact">
                 <Copy delay={0.2}>
-                  <p>Partnerships Formed</p>
-                  <h2>+04</h2>
+                  <p>Partnerships</p>
+                  <h2>04+</h2>
                 </Copy>
               </div>
             </div>
