@@ -9,6 +9,7 @@ import { useGSAP } from "@gsap/react";
 import { useViewTransition } from "@/hooks/useViewTransition";
 
 import Copy from "../Copy/Copy";
+import { getAllProjectsArray } from "@/app/projects/[slug]/project-data";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -21,18 +22,11 @@ const HowWeWork = () => {
   const [activeStep, setActiveStep] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
   const scrollTriggersRef = useRef([]);
+  
+  // Get projects data
+  const projectsData = getAllProjectsArray();
 
-  // Project slug mapping
-  const projectSlugs = {
-    "OCP-MineTalents": "ocp-minetalents",
-    "AMFD-Dashboard": "amfd-dashboard",
-    "Granulens": "granulens",
-    "TMSA-Marhaba-2077": "tmsa-marhaba-2077",
-    "LS-DeepVisionStream": "ls-deepvisionstream"
-  };
-
-  const handleProjectClick = (projectName) => {
-    const slug = projectSlugs[projectName];
+  const handleProjectClick = (slug) => {
     if (slug) {
       navigateWithTransition(`/projects/${slug}`);
     }
@@ -140,139 +134,38 @@ const HowWeWork = () => {
               </h3>
             </Copy>
             <div className="how-we-work-steps" ref={stepsRef}>
-              <div
-                className={`how-we-work-step ${activeStep === 0 ? "active" : ""
-                  }`}
-              >
-                <p className="how-we-work-step-label">Project</p>
-                <p className="how-we-work-step-index">1</p>
-              </div>
-              <div
-                className={`how-we-work-step ${activeStep === 1 ? "active" : ""
-                  }`}
-              >
-                <p className="how-we-work-step-label">Project</p>
-                <p className="how-we-work-step-index">2</p>
-              </div>
-              <div
-                className={`how-we-work-step ${activeStep === 2 ? "active" : ""
-                  }`}
-              >
-                <p className="how-we-work-step-label">Project</p>
-                <p className="how-we-work-step-index">3</p>
-              </div>
-              <div
-                className={`how-we-work-step ${activeStep === 3 ? "active" : ""
-                  }`}
-              >
-                <p className="how-we-work-step-label">Project</p>
-                <p className="how-we-work-step-index">4</p>
-              </div>
-              <div
-                className={`how-we-work-step ${activeStep === 4 ? "active" : ""
-                  }`}
-              >
-                <p className="how-we-work-step-label">Project</p>
-                <p className="how-we-work-step-index">5</p>
-              </div>
+              {projectsData.map((project, index) => (
+                <div
+                  key={project.id}
+                  className={`how-we-work-step ${activeStep === index ? "active" : ""}`}
+                >
+                  <p className="how-we-work-step-label">Project</p>
+                  <p className="how-we-work-step-index">{index + 1}</p>
+                </div>
+              ))}
             </div>
           </div>
         </div>
       </div>
       <div className="how-we-work-col how-we-work-cards" ref={cardsRef}>
-        <div className="how-we-work-card">
-          <div className="how-we-work-card-img">
-            <img src="/how-we-work/process-1.jpg" alt="" />
-          </div>
-          <div className="how-we-work-card-copy">
-            <div
-              className="how-we-work-card-index-label hoverable-project"
-              onClick={() => handleProjectClick("OCP-MineTalents")}
-            >
-              <h3>OCP-MineTalents</h3>
+        {projectsData.map((project) => (
+          <div key={project.id} className="how-we-work-card">
+            <div className="how-we-work-card-img">
+              <img src={project.image} alt={project.title} />
             </div>
-            <p className="md">
-              TalentAI: A platform that helps organizations and HR quickly
-              find and manage the expertise they need just with one message
-            </p>
-          </div>
-        </div>
-        <div className="how-we-work-card">
-          <div className="how-we-work-card-img">
-            <img src="/how-we-work/process-2.jpg" alt="" />
-          </div>
-          <div className="how-we-work-card-copy">
-            <div 
-              className="how-we-work-card-index-label hoverable-project"
-              onClick={() => handleProjectClick("AMFD-Dashboard")}
-            >
-              <h3>AMFD-Dashboard</h3>
+            <div className="how-we-work-card-copy">
+              <div 
+                className="how-we-work-card-index-label hoverable-project"
+                onClick={() => handleProjectClick(project.slug)}
+              >
+                <h3>{project.title}</h3>
+              </div>
+              <p className="md">
+                {project.description}
+              </p>
             </div>
-            <p className="md">
-              AMFD oversees several educational and operational entities with varying
-              budget structures. This system replaces
-              spreadsheets with a structured, version-controlled budget register.
-            </p>
           </div>
-        </div>
-        <div className="how-we-work-card">
-          <div className="how-we-work-card-img">
-            <img src="/how-we-work/process-3.jpg" alt="" />
-          </div>
-          <div className="how-we-work-card-copy">
-            <div 
-              className="how-we-work-card-index-label hoverable-project"
-              onClick={() => handleProjectClick("Granulens")}
-            >
-              <h3>Granulens</h3>
-            </div>
-            <p className="md">
-              This projects acts as a granulometry and coloration analyzer, where a sample of the
-              fertilizers will go thru a hardware device, so that images of
-              grains can be captured in a (calibrated) lighting controlled environment.
-            </p>
-          </div>
-        </div>
-
-        <div className="how-we-work-card">
-          <div className="how-we-work-card-img">
-            <img src="/how-we-work/process-4.jpg" alt="" />
-          </div>
-          <div className="how-we-work-card-copy">
-            <div 
-              className="how-we-work-card-index-label hoverable-project"
-              onClick={() => handleProjectClick("TMSA-Marhaba-2077")}
-            >
-              <h3>TMSA-Marhaba-2077</h3>
-            </div>
-            <p className="md">
-              Marhaba is a full-stack web application that helps harbour/port operators to:
-              ingest, clean and analyse passenger traffic data (IN / OUT)
-              manage ferry ticket prices & historical evolution
-              schedule events & holidays that impact traffic forecasts
-              visualise forecasts v.s. real figures through interactive dashboards
-            </p>
-          </div>
-        </div>
-
-        <div className="how-we-work-card">
-          <div className="how-we-work-card-img">
-            <img src="/how-we-work/process-4.jpg" alt="" />
-          </div>
-          <div className="how-we-work-card-copy">
-            <div 
-              className="how-we-work-card-index-label hoverable-project"
-              onClick={() => handleProjectClick("LS-DeepVisionStream")}
-            >
-              <h3>LS-DeepVisionStream</h3>
-            </div>
-            <p className="md">
-              DeepVisionStream is a modular DeepStream-based platform for real-time video analytics
-              using custom models like YOLO, SAM, and D-Fine. It includes C++ parsers, Python bindings,
-              and RabbitMQ to stream frames and metadata for easy integration with external apps.
-            </p>
-          </div>
-        </div>
+        ))}
       </div>
     </div>
   );

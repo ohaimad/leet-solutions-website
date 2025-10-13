@@ -5,8 +5,8 @@ import Nav from "@/components/Nav/Nav";
 import ConditionalFooter from "@/components/ConditionalFooter/ConditionalFooter";
 import Copy from "@/components/Copy/Copy";
 import { useViewTransition } from "@/hooks/useViewTransition";
+import { getProjectBySlug } from "./project-data";
 import "./project-detail.css";
-import ProjectsData from "./project-data";
 
 const ProjectDetail = () => {
     const params = useParams();
@@ -15,7 +15,7 @@ const ProjectDetail = () => {
 
     useEffect(() => {
         if (params?.slug) {
-            const projectData = ProjectsData[params.slug];
+            const projectData = getProjectBySlug(params.slug);
             if (projectData) {
                 setProject(projectData);
             }
@@ -98,14 +98,14 @@ const ProjectDetail = () => {
                     <div className="container">
                         <div className="project-details-grid">
                             <div className="project-details-content">
-                                <Copy delay={0.1}>
+                                {/* <Copy delay={0.1}> */}
                                     <h3>Project Overview</h3>
-                                </Copy>
-                                <Copy delay={0.2}>
-                                    <p>{project.fullDescription}</p>
-                                </Copy>
+                                {/* </Copy> */}
+                                {/* <Copy delay={0.2}> */}
+                                    <p dangerouslySetInnerHTML={{ __html: project.fullDescription }} />
+                                {/* </Copy> */}
                             </div>
-                            <div className="project-details-sidebar">
+                            {/* <div className="project-details-sidebar">
                                 <div className="project-tech">
                                     <Copy delay={0.3}>
                                         <h4>Technologies Used</h4>
@@ -118,7 +118,7 @@ const ProjectDetail = () => {
                                         ))}
                                     </div>
                                 </div>
-                            </div>
+                            </div> */}
                         </div>
                     </div>
                 </section>
