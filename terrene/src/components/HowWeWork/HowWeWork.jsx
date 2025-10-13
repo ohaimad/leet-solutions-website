@@ -6,12 +6,14 @@ import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
+import { useViewTransition } from "@/hooks/useViewTransition";
 
 import Copy from "../Copy/Copy";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const HowWeWork = () => {
+  const { navigateWithTransition } = useViewTransition();
   const containerRef = useRef(null);
   const headerRef = useRef(null);
   const cardsRef = useRef(null);
@@ -19,6 +21,22 @@ const HowWeWork = () => {
   const [activeStep, setActiveStep] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
   const scrollTriggersRef = useRef([]);
+
+  // Project slug mapping
+  const projectSlugs = {
+    "OCP-MineTalents": "ocp-minetalents",
+    "AMFD-Dashboard": "amfd-dashboard",
+    "Granulens": "granulens",
+    "TMSA-Marhaba-2077": "tmsa-marhaba-2077",
+    "LS-DeepVisionStream": "ls-deepvisionstream"
+  };
+
+  const handleProjectClick = (projectName) => {
+    const slug = projectSlugs[projectName];
+    if (slug) {
+      navigateWithTransition(`/projects/${slug}`);
+    }
+  };
 
   const checkMobile = () => {
     setIsMobile(window.innerWidth <= 1000);
@@ -167,7 +185,10 @@ const HowWeWork = () => {
             <img src="/how-we-work/process-1.jpg" alt="" />
           </div>
           <div className="how-we-work-card-copy">
-            <div className="how-we-work-card-index-label">
+            <div
+              className="how-we-work-card-index-label hoverable-project"
+              onClick={() => handleProjectClick("OCP-MineTalents")}
+            >
               <h3>OCP-MineTalents</h3>
             </div>
             <p className="md">
@@ -181,7 +202,10 @@ const HowWeWork = () => {
             <img src="/how-we-work/process-2.jpg" alt="" />
           </div>
           <div className="how-we-work-card-copy">
-            <div className="how-we-work-card-index-label">
+            <div 
+              className="how-we-work-card-index-label hoverable-project"
+              onClick={() => handleProjectClick("AMFD-Dashboard")}
+            >
               <h3>AMFD-Dashboard</h3>
             </div>
             <p className="md">
@@ -196,7 +220,10 @@ const HowWeWork = () => {
             <img src="/how-we-work/process-3.jpg" alt="" />
           </div>
           <div className="how-we-work-card-copy">
-            <div className="how-we-work-card-index-label">
+            <div 
+              className="how-we-work-card-index-label hoverable-project"
+              onClick={() => handleProjectClick("Granulens")}
+            >
               <h3>Granulens</h3>
             </div>
             <p className="md">
@@ -212,7 +239,10 @@ const HowWeWork = () => {
             <img src="/how-we-work/process-4.jpg" alt="" />
           </div>
           <div className="how-we-work-card-copy">
-            <div className="how-we-work-card-index-label">
+            <div 
+              className="how-we-work-card-index-label hoverable-project"
+              onClick={() => handleProjectClick("TMSA-Marhaba-2077")}
+            >
               <h3>TMSA-Marhaba-2077</h3>
             </div>
             <p className="md">
@@ -230,7 +260,10 @@ const HowWeWork = () => {
             <img src="/how-we-work/process-4.jpg" alt="" />
           </div>
           <div className="how-we-work-card-copy">
-            <div className="how-we-work-card-index-label">
+            <div 
+              className="how-we-work-card-index-label hoverable-project"
+              onClick={() => handleProjectClick("LS-DeepVisionStream")}
+            >
               <h3>LS-DeepVisionStream</h3>
             </div>
             <p className="md">

@@ -145,6 +145,38 @@
   letter-spacing: -0.05rem;
 }
 
+/* Hover effects for project navigation */
+.how-we-work .hoverable-project {
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.how-we-work .hoverable-project:hover {
+  transform: translateY(-2px);
+}
+
+.how-we-work .hoverable-project:hover h3 {
+  color: var(--base-600);
+  /* text-decoration: underline var(--base-600); */
+  transition: color 0.3s ease;
+}
+
+.how-we-work .hoverable-project::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--accent-green);
+  transition: width 0.3s ease;
+}
+
+.how-we-work .hoverable-project:hover::after {
+  width: 100%;
+}
+
 .how-we-work .how-we-work-card-copy {
   color: var(--base-350);
   padding: 1rem;
