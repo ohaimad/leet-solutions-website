@@ -125,7 +125,7 @@
 
 .project-details {
     padding: 6rem 0;
-    background-color: var(--base-400);
+    background-color: var(--base-500);
 }
 
 .project-details-grid {
@@ -136,7 +136,7 @@
 
 .project-details-content h3 {
     font-size: 2rem;
-    color: var(--base-50);
+    color: var(--base-100);
     margin-bottom: 2rem;
 }
 
@@ -155,7 +155,7 @@
 
 .project-tech h4 {
     font-size: 1.3rem;
-    color: var(--base-50);
+    color: var(--base-100);
     margin-bottom: 1.5rem;
 }
 

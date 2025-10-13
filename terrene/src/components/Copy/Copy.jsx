@@ -46,11 +46,13 @@ export default function Copy({ children, animateOnScroll = true, delay = 0 }) {
         elementRefs.current = [];
 
         let elements = [];
-        if (containerRef.current.hasAttribute("data-copy-wrapper")) {
+        if (containerRef.current && containerRef.current.hasAttribute("data-copy-wrapper")) {
           elements = Array.from(containerRef.current.children);
-        } else {
+        } else if (containerRef.current) {
           elements = [containerRef.current];
         }
+
+        if (elements.length === 0) return;
 
         elements.forEach((element) => {
           elementRefs.current.push(element);
