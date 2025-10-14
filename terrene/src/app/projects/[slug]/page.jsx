@@ -12,6 +12,10 @@ const ProjectDetail = () => {
     const params = useParams();
     const { navigateWithTransition } = useViewTransition();
     const [project, setProject] = useState(null);
+    const [currentImageIndex, setCurrentImageIndex] = useState(0);
+    const [isAutoSliding, setIsAutoSliding] = useState(true);
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [modalImageIndex, setModalImageIndex] = useState(0);
 
     useEffect(() => {
         if (params?.slug) {
@@ -21,6 +25,85 @@ const ProjectDetail = () => {
             }
         }
     }, [params]);
+
+    // Auto-slide effect
+    useEffect(() => {
+        if (!project || !project.image || !Array.isArray(project.image) || project.image.length <= 1 || !isAutoSliding) {
+            return;
+        }
+
+        const interval = setInterval(() => {
+            setCurrentImageIndex((prev) => (prev + 1) % project.image.length);
+        }, 4000); // Change image every 4 seconds
+
+        return () => clearInterval(interval);
+    }, [project, isAutoSliding]);
+
+    const nextImage = () => {
+        if (project && project.image && Array.isArray(project.image)) {
+            setCurrentImageIndex((prev) => (prev + 1) % project.image.length);
+            setIsAutoSliding(false); // Pause auto-slide on manual interaction
+            // Resume auto-slide after 8 seconds of inactivity
+            setTimeout(() => setIsAutoSliding(true), 8000);
+        }
+    };
+
+    const prevImage = () => {
+        if (project && project.image && Array.isArray(project.image)) {
+            setCurrentImageIndex((prev) => (prev - 1 + project.image.length) % project.image.length);
+            setIsAutoSliding(false); // Pause auto-slide on manual interaction
+            // Resume auto-slide after 8 seconds of inactivity
+            setTimeout(() => setIsAutoSliding(true), 8000);
+        }
+    };
+
+    const goToImage = (index) => {
+        setCurrentImageIndex(index);
+        setIsAutoSliding(false); // Pause auto-slide on manual interaction
+        // Resume auto-slide after 8 seconds of inactivity
+        setTimeout(() => setIsAutoSliding(true), 8000);
+    };
+
+    const openModal = (index = currentImageIndex) => {
+        setModalImageIndex(index);
+        setIsModalOpen(true);
+        setIsAutoSliding(false); // Pause auto-slide when modal is open
+        document.body.style.overflow = 'hidden'; // Prevent background scrolling
+    };
+
+    const closeModal = () => {
+        setIsModalOpen(false);
+        document.body.style.overflow = 'unset'; // Restore scrolling
+        setTimeout(() => setIsAutoSliding(true), 1000); // Resume auto-slide after modal closes
+    };
+
+    const nextModalImage = () => {
+        if (project && project.image && Array.isArray(project.image)) {
+            setModalImageIndex((prev) => (prev + 1) % project.image.length);
+        }
+    };
+
+    const prevModalImage = () => {
+        if (project && project.image && Array.isArray(project.image)) {
+            setModalImageIndex((prev) => (prev - 1 + project.image.length) % project.image.length);
+        }
+    };
+
+    // Close modal on Escape key
+    useEffect(() => {
+        const handleKeyDown = (event) => {
+            if (event.key === 'Escape' && isModalOpen) {
+                closeModal();
+            }
+            if (isModalOpen && project?.image && Array.isArray(project.image)) {
+                if (event.key === 'ArrowRight') nextModalImage();
+                if (event.key === 'ArrowLeft') prevModalImage();
+            }
+        };
+
+        document.addEventListener('keydown', handleKeyDown);
+        return () => document.removeEventListener('keydown', handleKeyDown);
+    }, [isModalOpen, project]);
 
     if (!project) {
         return (
@@ -86,9 +169,78 @@ const ProjectDetail = () => {
                                 </Copy>
                             </div> */}
                         </div>
-                        <div className="project-hero-image">
+                        <div className="project-hero-image-slider">
                             <Copy delay={0.6}>
-                                <img src={project.image} alt={project.title} />
+                                <div className="slider-container">
+                                    <div 
+                                        className="slider-main"
+                                        onMouseEnter={() => setIsAutoSliding(false)}
+                                        onMouseLeave={() => setIsAutoSliding(true)}
+                                    >
+                                        {project.image && Array.isArray(project.image) ? (
+                                            <img 
+                                                src={project.image[currentImageIndex]} 
+                                                alt={`${project.title} - Image ${currentImageIndex + 1}`}
+                                                className="slider-main-image clickable"
+                                                onClick={() => openModal(currentImageIndex)}
+                                                style={{ cursor: 'pointer' }}
+                                            />
+                                        ) : (
+                                            <img 
+                                                src={project.image} 
+                                                alt={project.title}
+                                                className="slider-main-image clickable"
+                                                onClick={() => openModal(0)}
+                                                style={{ cursor: 'pointer' }}
+                                            />
+                                        )}
+                                        
+                                        {project.image && Array.isArray(project.image) && project.image.length > 1 && (
+                                            <>
+                                                <button className="slider-btn slider-btn-prev" onClick={prevImage}>
+                                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                                        <path d="M15 18L9 12L15 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                                                    </svg>
+                                                </button>
+                                                <button className="slider-btn slider-btn-next" onClick={nextImage}>
+                                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                                        <path d="M9 18L15 12L9 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                                                    </svg>
+                                                </button>
+                                                <button 
+                                                    className="slider-btn slider-btn-play-pause" 
+                                                    onClick={() => setIsAutoSliding(!isAutoSliding)}
+                                                    title={isAutoSliding ? 'Pause slideshow' : 'Play slideshow'}
+                                                >
+                                                    {isAutoSliding ? (
+                                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                                            <path d="M6 4H10V20H6V4Z" fill="currentColor"/>
+                                                            <path d="M14 4H18V20H14V4Z" fill="currentColor"/>
+                                                        </svg>
+                                                    ) : (
+                                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                                            <path d="M8 5V19L19 12L8 5Z" fill="currentColor"/>
+                                                        </svg>
+                                                    )}
+                                                </button>
+                                            </>
+                                        )}
+                                    </div>
+                                    
+                                    {project.image && Array.isArray(project.image) && project.image.length > 1 && (
+                                        <div className="slider-thumbnails">
+                                            {project.image.map((img, index) => (
+                                                <button
+                                                    key={index}
+                                                    className={`thumbnail ${index === currentImageIndex ? 'active' : ''}`}
+                                                    onClick={() => goToImage(index)}
+                                                >
+                                                    <img src={img} alt={`Thumbnail ${index + 1}`} />
+                                                </button>
+                                            ))}
+                                        </div>
+                                    )}
+                                </div>
                             </Copy>
                         </div>
                     </div>
@@ -99,10 +251,10 @@ const ProjectDetail = () => {
                         <div className="project-details-grid">
                             <div className="project-details-content">
                                 {/* <Copy delay={0.1}> */}
-                                    <h3>Project Overview</h3>
+                                <h3>Project Overview</h3>
                                 {/* </Copy> */}
                                 {/* <Copy delay={0.2}> */}
-                                    <p dangerouslySetInnerHTML={{ __html: project.fullDescription }} />
+                                <p dangerouslySetInnerHTML={{ __html: project.fullDescription }} />
                                 {/* </Copy> */}
                             </div>
                             {/* <div className="project-details-sidebar">
@@ -124,6 +276,56 @@ const ProjectDetail = () => {
                 </section>
             </div>
             {/* <ConditionalFooter /> */}
+            
+            {/* Image Modal */}
+            {isModalOpen && (
+                <div className="image-modal" onClick={closeModal}>
+                    <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+                        <button className="modal-close" onClick={closeModal}>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                            </svg>
+                        </button>
+                        
+                        <div className="modal-image-container">
+                            {project.image && Array.isArray(project.image) ? (
+                                <img 
+                                    src={project.image[modalImageIndex]} 
+                                    alt={`${project.title} - Image ${modalImageIndex + 1}`}
+                                    className="modal-image"
+                                />
+                            ) : (
+                                <img 
+                                    src={project.image} 
+                                    alt={project.title}
+                                    className="modal-image"
+                                />
+                            )}
+                            
+                            {project.image && Array.isArray(project.image) && project.image.length > 1 && (
+                                <>
+                                    <button className="modal-nav modal-nav-prev" onClick={prevModalImage}>
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                            <path d="M15 18L9 12L15 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                                        </svg>
+                                    </button>
+                                    <button className="modal-nav modal-nav-next" onClick={nextModalImage}>
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                            <path d="M9 18L15 12L9 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                                        </svg>
+                                    </button>
+                                </>
+                            )}
+                        </div>
+                        
+                        {project.image && Array.isArray(project.image) && project.image.length > 1 && (
+                            <div className="modal-counter">
+                                {modalImageIndex + 1} / {project.image.length}
+                            </div>
+                        )}
+                    </div>
+                </div>
+            )}
         </>
     );
 };

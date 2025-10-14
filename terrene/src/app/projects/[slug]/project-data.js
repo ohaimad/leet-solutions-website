@@ -19,7 +19,12 @@ Cette vue globale permettra une meilleure coordination des activités, une surve
 &nbsp;&nbsp;▪ <strong>Arrêts imprévus chez les clients :</strong> Détection précoce pour une intervention rapide.<br /><br />
 
 Un système de notifications proactives est mis en place pour alerter les équipes concernées et faciliter une réponse rapide et appropriée.`,
-        image: "/how-we-work/process-1.jpg",
+        image: ["/projects/pipeline/img-1.png", 
+            "/projects/pipeline/img-2.png" ,
+            "/projects/pipeline/img-3.png",
+            "/projects/pipeline/img-4.png",
+            "/projects/pipeline/img-5.png"
+        ],
         entity: "SBU Mining",
         progress: "Production Ready",
         nextstep: "Rollout to additional OCP subsidiaries",

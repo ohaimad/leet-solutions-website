@@ -22,7 +22,7 @@ const HowWeWork = () => {
   const [activeStep, setActiveStep] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
   const scrollTriggersRef = useRef([]);
-  
+
   // Get projects data
   const projectsData = getAllProjectsArray();
 
@@ -151,10 +151,10 @@ const HowWeWork = () => {
         {projectsData.map((project) => (
           <div key={project.id} className="how-we-work-card">
             <div className="how-we-work-card-img">
-              <img src={project.image} alt={project.title} />
+              <img src={project.image[0]} alt={project.title} />
             </div>
             <div className="how-we-work-card-copy">
-              <div 
+              <div
                 className="how-we-work-card-index-label hoverable-project"
                 onClick={() => handleProjectClick(project.slug)}
               >
