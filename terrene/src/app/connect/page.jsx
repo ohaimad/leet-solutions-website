@@ -29,7 +29,7 @@ const page = () => {
                 <div className="contact-info-block">
                   <Copy delay={0.85}>
                     <p>General</p>
-                    <p>connect@leetsolution.com</p>
+                    <p>hello@leetsolution.ma</p>
                   </Copy>
                 </div>
                 <div className="contact-info-block">

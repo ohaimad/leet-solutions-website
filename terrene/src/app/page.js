@@ -298,13 +298,13 @@ export default function Home() {
             <div className="stat">
               <div className="stat-count">
                 <Copy delay={0.4}>
-                  <h2>98%</h2>
+                  <h2>40+</h2>
                 </Copy>
               </div>
               <div className="stat-divider"></div>
               <div className="stat-info">
                 <Copy delay={0.45}>
-                  <p>Return rate across commissions</p>
+                  <p>Members</p>
                 </Copy>
               </div>
             </div>

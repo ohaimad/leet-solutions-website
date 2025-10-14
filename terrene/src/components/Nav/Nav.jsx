@@ -274,7 +274,7 @@ const Nav = () => {
               <div className="sub-col">
                 <div className="menu-meta menu-commissions">
                   <p>General</p>
-                  <p>connect@leetsolution.com</p>
+                  <p>hello@leetsolution.ma</p>
                 </div>
                 <div className="menu-meta">
                   <p>Address</p>

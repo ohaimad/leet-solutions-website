@@ -26,26 +26,26 @@ const Spotlight = () => {
   };
 
   const spotlightItems = [
-    { name: "Ahmed EL Montassir", img: "/profiles/profile-1.jpg" },
-    { name: "Blue Horizon", img: "/spotlight/spotlight-img-2.jpg" },
-    { name: "Stone Quiet", img: "/spotlight/spotlight-img-3.jpg" },
-    { name: "Amber Niche", img: "/spotlight/spotlight-img-4.jpg" },
-    { name: "Earthen Shelf", img: "/spotlight/spotlight-img-5.jpg" },
-    { name: "Reflective White", img: "/spotlight/spotlight-img-6.jpg" },
-    { name: "Desert Edge", img: "/spotlight/spotlight-img-7.jpg" },
-    { name: "Soft Passage", img: "/spotlight/spotlight-img-8.jpg" },
-    { name: "Water Column", img: "/spotlight/spotlight-img-9.jpg" },
-    { name: "Golden Retreat", img: "/spotlight/spotlight-img-10.jpg" },
-    { name: "Courtyard Stillness", img: "/spotlight/spotlight-img-1.jpg" },
-    { name: "Blue Horizon", img: "/spotlight/spotlight-img-2.jpg" },
-    { name: "Stone Quiet", img: "/spotlight/spotlight-img-3.jpg" },
-    { name: "Amber Niche", img: "/spotlight/spotlight-img-4.jpg" },
-    { name: "Earthen Shelf", img: "/spotlight/spotlight-img-5.jpg" },
-    { name: "Reflective White", img: "/spotlight/spotlight-img-6.jpg" },
-    { name: "Desert Edge", img: "/spotlight/spotlight-img-7.jpg" },
-    { name: "Soft Passage", img: "/spotlight/spotlight-img-8.jpg" },
-    { name: "Water Column", img: "/spotlight/spotlight-img-9.jpg" },
-    { name: "Golden Retreat", img: "/spotlight/spotlight-img-10.jpg" },
+    { name: "Ahmed EL Montassir", img: "/profiles/profile-1.jpg", background: "/profiles/bg/bg-1.jpg" },
+    { name: "Blue Horizon", img: "/profiles/profile-2.jpg", background: "/profiles/bg/bg-1.jpg" },
+    { name: "Stone Quiet", img: "/profiles/profile-3.jpg", background: "/profiles/bg/bg-1.jpg" },
+    { name: "Amber Niche", img: "/profiles/profile-4.jpg", background: "/profiles/bg/bg-1.jpg" },
+    { name: "Earthen Shelf", img: "/profiles/profile-5.jpg", background: "/profiles/bg/bg-1.jpg" },
+    { name: "Reflective White", img: "/profiles/profile-6.jpg", background: "/profiles/bg/bg-1.jpg" },
+    { name: "Desert Edge", img: "/profiles/profile-7.jpg", background: "/profiles/bg/bg-1.jpg" },
+    { name: "Soft Passage", img: "/profiles/profile-8.jpg", background: "/profiles/bg/bg-1.jpg" },
+    { name: "Water Column", img: "/profiles/profile-9.jpg", background: "/profiles/bg/bg-1.jpg" },
+    { name: "Golden Retreat", img: "/profiles/profile-10.jpg", background: "/profiles/bg/bg-1.jpg" },
+    { name: "Courtyard Stillness", img: "/profiles/profile-11.jpg", background: "/profiles/bg/bg-2.jpg" },
+    { name: "Blue Horizon", img: "/profiles/profile-12.jpg", background: "/profiles/bg/bg-2.jpg" },
+    { name: "Stone Quiet", img: "/profiles/profile-13.jpg", background: "/profiles/bg/bg-2.jpg" },
+    { name: "Amber Niche", img: "/profiles/profile-14.jpg", background: "/profiles/bg/bg-2.jpg" },
+    { name: "Earthen Shelf", img: "/profiles/profile-15.jpg", background: "/profiles/bg/bg-2.jpg" },
+    { name: "Reflective White", img: "/profiles/profile-16.jpg", background: "/profiles/bg/bg-2.jpg" },
+    { name: "Desert Edge", img: "/profiles/profile-17.jpg", background: "/profiles/bg/bg-2.jpg" },
+    { name: "Soft Passage", img: "/profiles/profile-18.jpg", background: "/profiles/bg/bg-2.jpg" },
+    { name: "Water Column", img: "/profiles/profile-19.jpg", background: "/profiles/bg/bg-2.jpg" },
+    { name: "Golden Retreat", img: "/profiles/profile-20.jpg", background: "/profiles/bg/bg-2.jpg" },
   ];
 
   useEffect(() => {
@@ -273,7 +273,7 @@ const Spotlight = () => {
             titleElements[currentActiveIndex].style.opacity = "0.35";
             titleElements[closestIndex].style.opacity = "1";
             document.querySelector(".spotlight-bg-img img").src =
-              spotlightItems[closestIndex].img;
+              spotlightItems[closestIndex].background;
             currentActiveIndex = closestIndex;
           }
         } else if (progress > 0.95) {
@@ -341,7 +341,7 @@ const Spotlight = () => {
           </div>
         </div>
         <div className="spotlight-bg-img">
-          <img src="/spotlight/spotlight-img-1.jpg" alt="" />
+          <img src={spotlightItems[0].background} alt="" />
         </div>
       </div>
       <div
