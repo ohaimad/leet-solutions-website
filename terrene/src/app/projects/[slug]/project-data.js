@@ -2,7 +2,7 @@ const ProjectsData = {
     "pipeline": {
         title: "Pipeline",
         subtitle: "Développement d’une plateforme centralisée offrant une visibilité complète sur l’ensemble des opérations",
-        description: "TalentAI: A platform that helps organizations and HR quickly find and manage the expertise they need just with one message",
+        description: "Développement d’une plateforme centralisée offrant une visibilité complète sur l’ensemble des opérations",
         fullDescription: `<strong>Objectifs de la plateforme</strong><br /><br />
 
 <strong>1. Vue Globale Intégrée :</strong> Développement d'une plateforme centralisée offrant une visibilité complète sur l'ensemble des opérations, incluant :<br />

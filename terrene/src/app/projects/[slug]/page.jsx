@@ -131,57 +131,41 @@ const ProjectDetail = () => {
                         <div className="project-hero-image-slider">
                             <Copy delay={0.6}>
                                 <div className="slider-container">
-                                    <div 
+                                    <div
                                         className="slider-main"
                                         onMouseEnter={() => setIsAutoSliding(false)}
                                         onMouseLeave={() => setIsAutoSliding(true)}
                                     >
                                         {project.image && Array.isArray(project.image) ? (
-                                            <img 
-                                                src={project.image[currentImageIndex]} 
+                                            <img
+                                                src={project.image[currentImageIndex]}
                                                 alt={`${project.title} - Image ${currentImageIndex + 1}`}
                                                 className="slider-main-image"
                                             />
                                         ) : (
-                                            <img 
-                                                src={project.image} 
+                                            <img
+                                                src={project.image}
                                                 alt={project.title}
                                                 className="slider-main-image"
                                             />
                                         )}
-                                        
+
                                         {project.image && Array.isArray(project.image) && project.image.length > 1 && (
                                             <>
                                                 <button className="slider-btn slider-btn-prev" onClick={prevImage}>
                                                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                                        <path d="M15 18L9 12L15 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                                                        <path d="M15 18L9 12L15 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                                                     </svg>
                                                 </button>
                                                 <button className="slider-btn slider-btn-next" onClick={nextImage}>
                                                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                                        <path d="M9 18L15 12L9 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                                                        <path d="M9 18L15 12L9 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                                                     </svg>
-                                                </button>
-                                                <button 
-                                                    className="slider-btn slider-btn-play-pause" 
-                                                    onClick={() => setIsAutoSliding(!isAutoSliding)}
-                                                    title={isAutoSliding ? 'Pause slideshow' : 'Play slideshow'}
-                                                >
-                                                    {isAutoSliding ? (
-                                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                                            <path d="M6 4H10V20H6V4Z" fill="currentColor"/>
-                                                            <path d="M14 4H18V20H14V4Z" fill="currentColor"/>
-                                                        </svg>
-                                                    ) : (
-                                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                                            <path d="M8 5V19L19 12L8 5Z" fill="currentColor"/>
-                                                        </svg>
-                                                    )}
                                                 </button>
                                             </>
                                         )}
                                     </div>
-                                    
+
                                     {project.image && Array.isArray(project.image) && project.image.length > 1 && (
                                         <div className="slider-thumbnails">
                                             {project.image.map((img, index) => (
