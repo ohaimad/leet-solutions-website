@@ -14,8 +14,6 @@ const ProjectDetail = () => {
     const [project, setProject] = useState(null);
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
     const [isAutoSliding, setIsAutoSliding] = useState(true);
-    const [isModalOpen, setIsModalOpen] = useState(false);
-    const [modalImageIndex, setModalImageIndex] = useState(0);
 
     useEffect(() => {
         if (params?.slug) {
@@ -64,46 +62,7 @@ const ProjectDetail = () => {
         setTimeout(() => setIsAutoSliding(true), 8000);
     };
 
-    const openModal = (index = currentImageIndex) => {
-        setModalImageIndex(index);
-        setIsModalOpen(true);
-        setIsAutoSliding(false); // Pause auto-slide when modal is open
-        document.body.style.overflow = 'hidden'; // Prevent background scrolling
-    };
 
-    const closeModal = () => {
-        setIsModalOpen(false);
-        document.body.style.overflow = 'unset'; // Restore scrolling
-        setTimeout(() => setIsAutoSliding(true), 1000); // Resume auto-slide after modal closes
-    };
-
-    const nextModalImage = () => {
-        if (project && project.image && Array.isArray(project.image)) {
-            setModalImageIndex((prev) => (prev + 1) % project.image.length);
-        }
-    };
-
-    const prevModalImage = () => {
-        if (project && project.image && Array.isArray(project.image)) {
-            setModalImageIndex((prev) => (prev - 1 + project.image.length) % project.image.length);
-        }
-    };
-
-    // Close modal on Escape key
-    useEffect(() => {
-        const handleKeyDown = (event) => {
-            if (event.key === 'Escape' && isModalOpen) {
-                closeModal();
-            }
-            if (isModalOpen && project?.image && Array.isArray(project.image)) {
-                if (event.key === 'ArrowRight') nextModalImage();
-                if (event.key === 'ArrowLeft') prevModalImage();
-            }
-        };
-
-        document.addEventListener('keydown', handleKeyDown);
-        return () => document.removeEventListener('keydown', handleKeyDown);
-    }, [isModalOpen, project]);
 
     if (!project) {
         return (
@@ -181,17 +140,13 @@ const ProjectDetail = () => {
                                             <img 
                                                 src={project.image[currentImageIndex]} 
                                                 alt={`${project.title} - Image ${currentImageIndex + 1}`}
-                                                className="slider-main-image clickable"
-                                                onClick={() => openModal(currentImageIndex)}
-                                                style={{ cursor: 'pointer' }}
+                                                className="slider-main-image"
                                             />
                                         ) : (
                                             <img 
                                                 src={project.image} 
                                                 alt={project.title}
-                                                className="slider-main-image clickable"
-                                                onClick={() => openModal(0)}
-                                                style={{ cursor: 'pointer' }}
+                                                className="slider-main-image"
                                             />
                                         )}
                                         
@@ -276,56 +231,6 @@ const ProjectDetail = () => {
                 </section>
             </div>
             {/* <ConditionalFooter /> */}
-            
-            {/* Image Modal */}
-            {isModalOpen && (
-                <div className="image-modal" onClick={closeModal}>
-                    <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-                        <button className="modal-close" onClick={closeModal}>
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                            </svg>
-                        </button>
-                        
-                        <div className="modal-image-container">
-                            {project.image && Array.isArray(project.image) ? (
-                                <img 
-                                    src={project.image[modalImageIndex]} 
-                                    alt={`${project.title} - Image ${modalImageIndex + 1}`}
-                                    className="modal-image"
-                                />
-                            ) : (
-                                <img 
-                                    src={project.image} 
-                                    alt={project.title}
-                                    className="modal-image"
-                                />
-                            )}
-                            
-                            {project.image && Array.isArray(project.image) && project.image.length > 1 && (
-                                <>
-                                    <button className="modal-nav modal-nav-prev" onClick={prevModalImage}>
-                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                            <path d="M15 18L9 12L15 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                                        </svg>
-                                    </button>
-                                    <button className="modal-nav modal-nav-next" onClick={nextModalImage}>
-                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                            <path d="M9 18L15 12L9 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                                        </svg>
-                                    </button>
-                                </>
-                            )}
-                        </div>
-                        
-                        {project.image && Array.isArray(project.image) && project.image.length > 1 && (
-                            <div className="modal-counter">
-                                {modalImageIndex + 1} / {project.image.length}
-                            </div>
-                        )}
-                    </div>
-                </div>
-            )}
         </>
     );
 };

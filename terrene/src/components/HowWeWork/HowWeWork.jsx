@@ -139,7 +139,7 @@ const HowWeWork = () => {
                   key={project.id}
                   className={`how-we-work-step ${activeStep === index ? "active" : ""}`}
                 >
-                  <p className="how-we-work-step-label">Project</p>
+                  {/* <p className="how-we-work-step-label">Project</p> */}
                   <p className="how-we-work-step-index">{index + 1}</p>
                 </div>
               ))}
