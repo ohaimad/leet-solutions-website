@@ -20,32 +20,21 @@ const Spotlight = () => {
 
   // NOTE: These values are interconnected - when speed changes, it affects when images finish their movement, which also affects the gap between images. When you change the number of items in spotlightItems array, you'll need to adjust these config settings together. Test different combinations until you find the right balance that looks good.
   const config = {
-    gap: 0.05,
-    speed: 0.3,
+    gap: 0.08,
+    speed: 0.5,
     arcRadius: 200,
   };
 
   const spotlightItems = [
-    { name: "Ahmed EL Montassir", img: "/profiles/profile-1.jpg", background: "/profiles/bg/bg-1.jpg" },
-    { name: "Blue Horizon", img: "/profiles/profile-2.jpg", background: "/profiles/bg/bg-1.jpg" },
-    { name: "Stone Quiet", img: "/profiles/profile-3.jpg", background: "/profiles/bg/bg-1.jpg" },
-    { name: "Amber Niche", img: "/profiles/profile-4.jpg", background: "/profiles/bg/bg-1.jpg" },
-    { name: "Earthen Shelf", img: "/profiles/profile-5.jpg", background: "/profiles/bg/bg-1.jpg" },
-    { name: "Reflective White", img: "/profiles/profile-6.jpg", background: "/profiles/bg/bg-1.jpg" },
-    { name: "Desert Edge", img: "/profiles/profile-7.jpg", background: "/profiles/bg/bg-1.jpg" },
-    { name: "Soft Passage", img: "/profiles/profile-8.jpg", background: "/profiles/bg/bg-1.jpg" },
-    { name: "Water Column", img: "/profiles/profile-9.jpg", background: "/profiles/bg/bg-1.jpg" },
-    { name: "Golden Retreat", img: "/profiles/profile-10.jpg", background: "/profiles/bg/bg-1.jpg" },
-    { name: "Courtyard Stillness", img: "/profiles/profile-11.jpg", background: "/profiles/bg/bg-2.jpg" },
-    { name: "Blue Horizon", img: "/profiles/profile-12.jpg", background: "/profiles/bg/bg-2.jpg" },
-    { name: "Stone Quiet", img: "/profiles/profile-13.jpg", background: "/profiles/bg/bg-2.jpg" },
-    { name: "Amber Niche", img: "/profiles/profile-14.jpg", background: "/profiles/bg/bg-2.jpg" },
-    { name: "Earthen Shelf", img: "/profiles/profile-15.jpg", background: "/profiles/bg/bg-2.jpg" },
-    { name: "Reflective White", img: "/profiles/profile-16.jpg", background: "/profiles/bg/bg-2.jpg" },
-    { name: "Desert Edge", img: "/profiles/profile-17.jpg", background: "/profiles/bg/bg-2.jpg" },
-    { name: "Soft Passage", img: "/profiles/profile-18.jpg", background: "/profiles/bg/bg-2.jpg" },
-    { name: "Water Column", img: "/profiles/profile-19.jpg", background: "/profiles/bg/bg-2.jpg" },
-    { name: "Golden Retreat", img: "/profiles/profile-20.jpg", background: "/profiles/bg/bg-2.jpg" },
+    { name: "Abdelmottalib Qiouami", img: "/team-members/lwjoh/Abdelmottalib Qiouami.jpg", background: "/team-members/bg/bg-3.png" },
+    { name: "Othmane BOUCHTA", img: "/team-members/lwjoh/Othmane BOUCHTA.JPG", background: "/team-members/bg/bg-3.png" },
+    { name: "Said Oubella", img: "/team-members/lwjoh/Said Oubella.jpg", background: "/team-members/bg/bg-3.png" },
+    { name: "Yahya Rhiba", img: "/team-members/lwjoh/Yahya Rhiba.png", background: "/team-members/bg/bg-3.png" },
+    { name: "Yassine Oubihi", img: "/team-members/lwjoh/Yassine Oubihi.jpeg", background: "/team-members/bg/bg-1.png" },
+    { name: "Younes Bouddou", img: "/team-members/lwjoh/Younes Bouddou.JPG", background: "/team-members/bg/bg-1.png" },
+    { name: "Aymen Errafig", img: "/team-members/lwjoh/aymen errafig.jpg", background: "/team-members/bg/bg-1.png" },
+    { name: "Brahim Chifour", img: "/team-members/lwjoh/brahim chifour.jpg", background: "/team-members/bg/bg-1.png" },
+    { name: "Otmane Haimad", img: "/team-members/lwjoh/otmane haimad.JPG", background: "/team-members/bg/bg-1.png" },
   ];
 
   useEffect(() => {
