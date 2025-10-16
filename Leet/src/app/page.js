@@ -236,7 +236,7 @@ export default function Home() {
           <div className="hero-content">
             <div className="hero-header">
               <Copy animateOnScroll={false} delay={showPreloader ? 4 : 0.85}>
-                <h1>Place where <span style={{color: '#AFDCB1'}}>solutions</span> runs at <span style={{color: '#AFDCB1'}}>1337</span> speed</h1>
+                <h1>Place where <span style={{ color: '#AFDCB1' }}>solutions</span> runs at <span style={{ color: '#AFDCB1' }}>1337</span> speed</h1>
               </Copy>
             </div>
             <div className="hero-tagline">
@@ -317,8 +317,8 @@ export default function Home() {
             <Copy delay={0.1}>
               <h1>
                 <span className="spacer">&nbsp;</span>
-                LEET Solutions emerged from Morocco's revolutionary 1337 coding school ecosystem, where peer-to-peer
-                learning and project-based education create exceptional developers. We're not just another tech
+                LEET Solutions emerged from Morocco's revolutionary  coding school ecosystem, where peer-to-peer
+                learning and project-based education create exceptional software engineers. We're not just another tech
                 company – we're industrial AI pioneers.
               </h1>
             </Copy>
@@ -326,7 +326,7 @@ export default function Home() {
           <div className="what-we-do-content">
             <div className="what-we-do-col">
               <Copy delay={0.1}>
-                <p style={{color: '#AFDCB1'}}>How we work</p>
+                <p style={{ color: '#AFDCB1' }}>How we work</p>
               </Copy>
               <Copy delay={0.15}>
                 <p className="lg">
@@ -356,7 +356,7 @@ export default function Home() {
       </section>
       <section className="featured-projects-container">
         <div className="container">
-          <div className="featured-projects-header-callout" style={{color:'#AFDCB1'}}>
+          <div className="featured-projects-header-callout" style={{ color: '#AFDCB1' }}>
             <Copy delay={0.1}>
               <p>Departments</p>
             </Copy>
@@ -372,7 +372,7 @@ export default function Home() {
       <section className="client-reviews-container">
         <div className="container">
           <div className="client-reviews-header-callout">
-            <p style={{color:'#AFDCB1'}}>Leet Leads</p>
+            <p style={{ color: '#AFDCB1' }}>Leet Leads</p>
           </div>
           <ClientReviews />
         </div>
@@ -408,7 +408,7 @@ export default function Home() {
                   Showcases our innovative work across diverse industries, including
                   collaborations with major organizations such as OCP and TANGER-MED.
                   Each project reflects our expertise, creativity, and commitment to transforming
-                  deas into impactful results.
+                  ideas into impactful results.
                 </h3>
               </Copy>
               <AnimatedButton label="Explore Projects" route="projects" />

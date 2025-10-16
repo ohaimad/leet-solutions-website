@@ -20,23 +20,39 @@ const Spotlight = () => {
 
   // NOTE: These values are interconnected - when speed changes, it affects when images finish their movement, which also affects the gap between images. When you change the number of items in spotlightItems array, you'll need to adjust these config settings together. Test different combinations until you find the right balance that looks good.
   const config = {
-    gap: 0.06,
-    speed: 0.40,
+    gap: 0.030,
+    speed: 0.20,
     arcRadius: 400,
   };
 
   const spotlightItems = [
-    { name: "Oussama krich", img: "/team-members/lwjoh/oussama krich.png", background: "/team-members/bg/bg-5.png" },
+    { name: "Oussama Krich", img: "/team-members/lwjoh/oussama krich.png", background: "/team-members/bg/bg-5.png" },
     { name: "Yahya Rhiba", img: "/team-members/lwjoh/Yahya Rhiba.png", background: "/team-members/bg/bg-5.png" },
     { name: "Brahim Chifour", img: "/team-members/lwjoh/brahim chifour.jpg", background: "/team-members/bg/bg-5.png" },
     { name: "Otmane Haimad", img: "/team-members/lwjoh/otmane haimad.JPG", background: "/team-members/bg/bg-5.png" },
-    { name: "Abdsamie elbrahmi", img: "/team-members/lwjoh/abdsamie elbrahmi.png", background: "/team-members/bg/bg-5.png" },
+    { name: "Abdsamie Elbrahmi", img: "/team-members/lwjoh/abdsamie elbrahmi.png", background: "/team-members/bg/bg-5.png" },
     { name: "Yassine Oubihi", img: "/team-members/lwjoh/Yassine Oubihi.jpeg", background: "/team-members/bg/bg-5.png" },
     { name: "Aymen Errafig", img: "/team-members/lwjoh/aymen errafig.jpg", background: "/team-members/bg/bg-5.png" },
     { name: "Abdelmottalib Qiouami", img: "/team-members/lwjoh/Abdelmottalib Qiouami.jpg", background: "/team-members/bg/bg-6.png" },
     { name: "Othmane BOUCHTA", img: "/team-members/lwjoh/Othmane BOUCHTA.JPG", background: "/team-members/bg/bg-6.png" },
     { name: "Said Oubella", img: "/team-members/lwjoh/Said Oubella.jpg", background: "/team-members/bg/bg-6.png" },
     { name: "Younes Bouddou", img: "/team-members/lwjoh/Younes Bouddou.JPG", background: "/team-members/bg/bg-6.png" },
+    { name: "Abdelkader Outem", img: "/team-members/lwjoh/Abdelkader Outem.jpg", background: "/team-members/bg/bg-5.png" },
+    { name: "Abdellah", img: "/team-members/lwjoh/Abdellah.jpeg", background: "/team-members/bg/bg-6.png" },
+    { name: "El Mehdi El Islami", img: "/team-members/lwjoh/El Mehdi El Islami.jpg", background: "/team-members/bg/bg-5.png" },
+    { name: "Kaoutar Tbatou", img: "/team-members/lwjoh/Kaoutar Tbatou.jpeg", background: "/team-members/bg/bg-6.png" },
+    { name: "Khalid Belyazid", img: "/team-members/lwjoh/Khalid Belyazid.jpeg", background: "/team-members/bg/bg-5.png" },
+    { name: "Marouane Doulahian", img: "/team-members/lwjoh/Marouane Doulahian.jpeg", background: "/team-members/bg/bg-6.png" },
+    { name: "Nabil Hayoun", img: "/team-members/lwjoh/Nabil Hayoun.jpg", background: "/team-members/bg/bg-5.png" },
+    { name: "Oussam Ezzaoui", img: "/team-members/lwjoh/Oussam Ezzaoui.png", background: "/team-members/bg/bg-6.png" },
+    { name: "Sara Ennaama", img: "/team-members/lwjoh/Sara Ennaama.jpg", background: "/team-members/bg/bg-5.png" },
+    { name: "Slimane Chanchoul", img: "/team-members/lwjoh/Slimane Chanchoul.png", background: "/team-members/bg/bg-6.png" },
+    { name: "Zakaria Moumen", img: "/team-members/lwjoh/Zakaria Moumen.jpg", background: "/team-members/bg/bg-5.png" },
+    { name: "Zouhair Ouddach", img: "/team-members/lwjoh/Zouhair Ouddach.jpg", background: "/team-members/bg/bg-6.png" },
+    { name: "Anas Mejdoub", img: "/team-members/lwjoh/Anas Mejdoub.jpeg", background: "/team-members/bg/bg-5.png" },
+    { name: "Houda Bouhsis", img: "/team-members/lwjoh/Houda Bouhsis.jpeg", background: "/team-members/bg/bg-6.png" },
+    { name: "Rida El Mazary", img: "/team-members/lwjoh/Rida El Mazary.jpeg", background: "/team-members/bg/bg-5.png" },
+    { name: "Oussama Mohamed", img: "/team-members/lwjoh/Oussama Mohamed.png", background: "/team-members/bg/bg-6.png" },
   ];
 
   useEffect(() => {
