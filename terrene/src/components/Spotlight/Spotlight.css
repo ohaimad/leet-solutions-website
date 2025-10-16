@@ -160,7 +160,7 @@
 .spotlight-img {
   position: absolute;
   width: 200px;
-  height: 160px;
+  height: 180px;
   /* border: 1px solid var(--base-600); */
   will-change: transform;
   border-radius: 1rem;

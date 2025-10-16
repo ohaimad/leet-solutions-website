@@ -179,7 +179,7 @@ Grâce à ses <strong>capacités de raisonnement</strong> basées sur les <stron
         image: ["/projects/medbot/img-1.png",
             "/projects/medbot/img-2.png",
         ],
-        entity: "SBU Mining",
+        entity: "TANGER MED",
         progress: "MVP développé et présenté à Tanger Med + Application mobile et site web développés",
         nextstep: "Lancement officiel",
         category: "AI & Computer Vision"
@@ -221,9 +221,11 @@ Grâce à ses <strong>capacités de raisonnement</strong> basées sur les <stron
 — <strong>Réduction significative</strong> du temps de planification.<br />
 — <strong>Réduction des erreurs humaines.</strong><br />
 — <strong>Meilleure réactivité</strong> face aux imprévus.`,
-        image: ["/projects/hydro/img-1.png",
-            "/projects/hydro/img-2.png",
-            "/projects/hydro/img-3.png",
+        image: ["/projects/mfd/img-1.png",
+            "/projects/mfd/img-2.png",
+            "/projects/mfd/img-3.png",
+            "/projects/mfd/img-4.png",
+            "/projects/mfd/img-5.png",
         ],
         entity: "SBU Mining",
         progress: " MVP Développé + Beta Tests à la laverie Beni Amir",

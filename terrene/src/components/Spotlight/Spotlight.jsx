@@ -20,34 +20,12 @@ const Spotlight = () => {
 
   // NOTE: These values are interconnected - when speed changes, it affects when images finish their movement, which also affects the gap between images. When you change the number of items in spotlightItems array, you'll need to adjust these config settings together. Test different combinations until you find the right balance that looks good.
   const config = {
-    gap: 0.025,
-    speed: 0.20,
+    gap: 0.06,
+    speed: 0.40,
     arcRadius: 400,
   };
 
   const spotlightItems = [
-    { name: "Oussama krich", img: "/team-members/lwjoh/oussama krich.png", background: "/team-members/bg/bg-5.png" },
-    { name: "Yahya Rhiba", img: "/team-members/lwjoh/Yahya Rhiba.png", background: "/team-members/bg/bg-5.png" },
-    { name: "Brahim Chifour", img: "/team-members/lwjoh/brahim chifour.jpg", background: "/team-members/bg/bg-5.png" },
-    { name: "Otmane Haimad", img: "/team-members/lwjoh/otmane haimad.JPG", background: "/team-members/bg/bg-5.png" },
-    { name: "Abdsamie elbrahmi", img: "/team-members/lwjoh/abdsamie elbrahmi.png", background: "/team-members/bg/bg-5.png" },
-    { name: "Yassine Oubihi", img: "/team-members/lwjoh/Yassine Oubihi.jpeg", background: "/team-members/bg/bg-5.png" },
-    { name: "Aymen Errafig", img: "/team-members/lwjoh/aymen errafig.jpg", background: "/team-members/bg/bg-5.png" },
-    { name: "Abdelmottalib Qiouami", img: "/team-members/lwjoh/Abdelmottalib Qiouami.jpg", background: "/team-members/bg/bg-6.png" },
-    { name: "Othmane BOUCHTA", img: "/team-members/lwjoh/Othmane BOUCHTA.JPG", background: "/team-members/bg/bg-6.png" },
-    { name: "Said Oubella", img: "/team-members/lwjoh/Said Oubella.jpg", background: "/team-members/bg/bg-6.png" },
-    { name: "Younes Bouddou", img: "/team-members/lwjoh/Younes Bouddou.JPG", background: "/team-members/bg/bg-6.png" },
-    { name: "Oussama krich", img: "/team-members/lwjoh/oussama krich.png", background: "/team-members/bg/bg-5.png" },
-    { name: "Yahya Rhiba", img: "/team-members/lwjoh/Yahya Rhiba.png", background: "/team-members/bg/bg-5.png" },
-    { name: "Brahim Chifour", img: "/team-members/lwjoh/brahim chifour.jpg", background: "/team-members/bg/bg-5.png" },
-    { name: "Otmane Haimad", img: "/team-members/lwjoh/otmane haimad.JPG", background: "/team-members/bg/bg-5.png" },
-    { name: "Abdsamie elbrahmi", img: "/team-members/lwjoh/abdsamie elbrahmi.png", background: "/team-members/bg/bg-5.png" },
-    { name: "Yassine Oubihi", img: "/team-members/lwjoh/Yassine Oubihi.jpeg", background: "/team-members/bg/bg-5.png" },
-    { name: "Aymen Errafig", img: "/team-members/lwjoh/aymen errafig.jpg", background: "/team-members/bg/bg-5.png" },
-    { name: "Abdelmottalib Qiouami", img: "/team-members/lwjoh/Abdelmottalib Qiouami.jpg", background: "/team-members/bg/bg-6.png" },
-    { name: "Othmane BOUCHTA", img: "/team-members/lwjoh/Othmane BOUCHTA.JPG", background: "/team-members/bg/bg-6.png" },
-    { name: "Said Oubella", img: "/team-members/lwjoh/Said Oubella.jpg", background: "/team-members/bg/bg-6.png" },
-    { name: "Younes Bouddou", img: "/team-members/lwjoh/Younes Bouddou.JPG", background: "/team-members/bg/bg-6.png" },
     { name: "Oussama krich", img: "/team-members/lwjoh/oussama krich.png", background: "/team-members/bg/bg-5.png" },
     { name: "Yahya Rhiba", img: "/team-members/lwjoh/Yahya Rhiba.png", background: "/team-members/bg/bg-5.png" },
     { name: "Brahim Chifour", img: "/team-members/lwjoh/brahim chifour.jpg", background: "/team-members/bg/bg-5.png" },
