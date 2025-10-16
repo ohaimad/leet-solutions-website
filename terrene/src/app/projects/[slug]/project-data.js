@@ -122,11 +122,16 @@ Ce projet combine la <strong>programmation par contraintes avancée</strong> ave
 &nbsp;&nbsp;• Coordonner le mouvement des matériaux depuis les halls de stockage jusqu'aux navires à travers l'infrastructure du port.<br />
 &nbsp;&nbsp;• Optimiser l'utilisation des ressources, telles que les convoyeurs, les unités de stockage et les équipements de déchargement.<br />
 &nbsp;&nbsp;• S'assurer que toutes les opérations respectent les contraintes physiques, temporelles et logistiques.`,
-        image: ["/projects/pipeline/img-1.png",
-            "/projects/pipeline/img-2.png",
-            "/projects/pipeline/img-3.png",
-            "/projects/pipeline/img-4.png",
-            "/projects/pipeline/img-5.png"
+        image: ["/projects/portwise/img-1.png",
+            "/projects/portwise/img-2.png",
+            "/projects/portwise/img-3.png",
+            "/projects/portwise/img-4.png",
+            "/projects/portwise/img-5.png",
+            "/projects/portwise/img-6.png",
+            "/projects/portwise/img-7.png",
+            "/projects/portwise/img-8.png",
+            "/projects/portwise/img-9.png",
+            "/projects/portwise/img-10.png",
         ],
         entity: "SBU Manufacturing",
         progress: "MVP Developpé",
@@ -158,14 +163,24 @@ Ce projet combine la <strong>programmation par contraintes avancée</strong> ave
 
     "med-chatbot": {
         title: "MED Chatbot",
-        subtitle: "AI-Powered HR Assistant",
-        description: "Sawalni, un LLM qui répond aux questions RH des employés.",
-        fullDescription: "Nous concevons ce chatbot pour traiter la plupart des requêtes des employés liées aux RH. En automatisant le processus de réponse aux questions courantes, le chatbot réduira la charge de travail du personnel RH, leur permettant de se concentrer sur des tâches plus complexes. De plus, il augmentera la disponibilité des RH, offrant aux employés une ressource rapide et fiable pour accéder à l'information à tout moment. Cette solution rationalisera les opérations RH et améliorera la satisfaction globale des employés.",
+        subtitle: "AI-Powered Chatbot Assistant",
+        description: "MVP développé et présenté à Tanger Med + Application mobile et site web développés",
+        fullDescription: `Grâce à notre expertise dans la création de <strong>chatbots intelligents</strong>, nous avons conçu un <strong>assistant conversationnel avancé</strong> pour <strong>Tanger Med</strong>, capable de comprendre et de traiter des requêtes complexes liées aux ressources humaines et à la gestion interne.<br /><br />
+
+Entraîné sur plus de <strong>1 000 documents</strong> de différentes natures — règlements, procédures, données internes et publiques — ce chatbot offre une <strong>recherche d’informations rapide et fiable</strong> dans un large volume de contenus.<br /><br />
+
+Grâce à ses <strong>capacités de raisonnement</strong> basées sur les <strong>modèles de langage les plus performants</strong>, il est en mesure de répondre à des <strong>questions complexes</strong> nécessitant la compréhension et la corrélation de plusieurs fichiers simultanément.<br /><br />
+
+<strong>Avantages :</strong><br />
+• Gain de temps considérable pour les employés dans la recherche d’informations<br />
+• Réponses précises et cohérentes, conformes aux procédures internes<br />
+• Amélioration de la communication et de la diffusion du savoir au sein de Tanger Med<br />
+• Intégration fluide sur les plateformes web et mobiles pour un accès simplifié`,
         image: ["/projects/medbot/img-1.png",
             "/projects/medbot/img-2.png",
         ],
         entity: "SBU Mining",
-        progress: "MVP Developpé et présenté au MD Mining + Application mobile publiée sur les stores Apple et Google.",
+        progress: "MVP développé et présenté à Tanger Med + Application mobile et site web développés",
         nextstep: "Lancement officiel",
         category: "AI & Computer Vision"
     },

@@ -20,21 +20,45 @@ const Spotlight = () => {
 
   // NOTE: These values are interconnected - when speed changes, it affects when images finish their movement, which also affects the gap between images. When you change the number of items in spotlightItems array, you'll need to adjust these config settings together. Test different combinations until you find the right balance that looks good.
   const config = {
-    gap: 0.08,
-    speed: 0.5,
-    arcRadius: 200,
+    gap: 0.025,
+    speed: 0.20,
+    arcRadius: 400,
   };
 
   const spotlightItems = [
-    { name: "Abdelmottalib Qiouami", img: "/team-members/lwjoh/Abdelmottalib Qiouami.jpg", background: "/team-members/bg/bg-3.png" },
-    { name: "Othmane BOUCHTA", img: "/team-members/lwjoh/Othmane BOUCHTA.JPG", background: "/team-members/bg/bg-3.png" },
-    { name: "Said Oubella", img: "/team-members/lwjoh/Said Oubella.jpg", background: "/team-members/bg/bg-3.png" },
-    { name: "Yahya Rhiba", img: "/team-members/lwjoh/Yahya Rhiba.png", background: "/team-members/bg/bg-3.png" },
-    { name: "Yassine Oubihi", img: "/team-members/lwjoh/Yassine Oubihi.jpeg", background: "/team-members/bg/bg-1.png" },
-    { name: "Younes Bouddou", img: "/team-members/lwjoh/Younes Bouddou.JPG", background: "/team-members/bg/bg-1.png" },
-    { name: "Aymen Errafig", img: "/team-members/lwjoh/aymen errafig.jpg", background: "/team-members/bg/bg-1.png" },
-    { name: "Brahim Chifour", img: "/team-members/lwjoh/brahim chifour.jpg", background: "/team-members/bg/bg-1.png" },
-    { name: "Otmane Haimad", img: "/team-members/lwjoh/otmane haimad.JPG", background: "/team-members/bg/bg-1.png" },
+    { name: "Oussama krich", img: "/team-members/lwjoh/oussama krich.png", background: "/team-members/bg/bg-5.png" },
+    { name: "Yahya Rhiba", img: "/team-members/lwjoh/Yahya Rhiba.png", background: "/team-members/bg/bg-5.png" },
+    { name: "Brahim Chifour", img: "/team-members/lwjoh/brahim chifour.jpg", background: "/team-members/bg/bg-5.png" },
+    { name: "Otmane Haimad", img: "/team-members/lwjoh/otmane haimad.JPG", background: "/team-members/bg/bg-5.png" },
+    { name: "Abdsamie elbrahmi", img: "/team-members/lwjoh/abdsamie elbrahmi.png", background: "/team-members/bg/bg-5.png" },
+    { name: "Yassine Oubihi", img: "/team-members/lwjoh/Yassine Oubihi.jpeg", background: "/team-members/bg/bg-5.png" },
+    { name: "Aymen Errafig", img: "/team-members/lwjoh/aymen errafig.jpg", background: "/team-members/bg/bg-5.png" },
+    { name: "Abdelmottalib Qiouami", img: "/team-members/lwjoh/Abdelmottalib Qiouami.jpg", background: "/team-members/bg/bg-6.png" },
+    { name: "Othmane BOUCHTA", img: "/team-members/lwjoh/Othmane BOUCHTA.JPG", background: "/team-members/bg/bg-6.png" },
+    { name: "Said Oubella", img: "/team-members/lwjoh/Said Oubella.jpg", background: "/team-members/bg/bg-6.png" },
+    { name: "Younes Bouddou", img: "/team-members/lwjoh/Younes Bouddou.JPG", background: "/team-members/bg/bg-6.png" },
+    { name: "Oussama krich", img: "/team-members/lwjoh/oussama krich.png", background: "/team-members/bg/bg-5.png" },
+    { name: "Yahya Rhiba", img: "/team-members/lwjoh/Yahya Rhiba.png", background: "/team-members/bg/bg-5.png" },
+    { name: "Brahim Chifour", img: "/team-members/lwjoh/brahim chifour.jpg", background: "/team-members/bg/bg-5.png" },
+    { name: "Otmane Haimad", img: "/team-members/lwjoh/otmane haimad.JPG", background: "/team-members/bg/bg-5.png" },
+    { name: "Abdsamie elbrahmi", img: "/team-members/lwjoh/abdsamie elbrahmi.png", background: "/team-members/bg/bg-5.png" },
+    { name: "Yassine Oubihi", img: "/team-members/lwjoh/Yassine Oubihi.jpeg", background: "/team-members/bg/bg-5.png" },
+    { name: "Aymen Errafig", img: "/team-members/lwjoh/aymen errafig.jpg", background: "/team-members/bg/bg-5.png" },
+    { name: "Abdelmottalib Qiouami", img: "/team-members/lwjoh/Abdelmottalib Qiouami.jpg", background: "/team-members/bg/bg-6.png" },
+    { name: "Othmane BOUCHTA", img: "/team-members/lwjoh/Othmane BOUCHTA.JPG", background: "/team-members/bg/bg-6.png" },
+    { name: "Said Oubella", img: "/team-members/lwjoh/Said Oubella.jpg", background: "/team-members/bg/bg-6.png" },
+    { name: "Younes Bouddou", img: "/team-members/lwjoh/Younes Bouddou.JPG", background: "/team-members/bg/bg-6.png" },
+    { name: "Oussama krich", img: "/team-members/lwjoh/oussama krich.png", background: "/team-members/bg/bg-5.png" },
+    { name: "Yahya Rhiba", img: "/team-members/lwjoh/Yahya Rhiba.png", background: "/team-members/bg/bg-5.png" },
+    { name: "Brahim Chifour", img: "/team-members/lwjoh/brahim chifour.jpg", background: "/team-members/bg/bg-5.png" },
+    { name: "Otmane Haimad", img: "/team-members/lwjoh/otmane haimad.JPG", background: "/team-members/bg/bg-5.png" },
+    { name: "Abdsamie elbrahmi", img: "/team-members/lwjoh/abdsamie elbrahmi.png", background: "/team-members/bg/bg-5.png" },
+    { name: "Yassine Oubihi", img: "/team-members/lwjoh/Yassine Oubihi.jpeg", background: "/team-members/bg/bg-5.png" },
+    { name: "Aymen Errafig", img: "/team-members/lwjoh/aymen errafig.jpg", background: "/team-members/bg/bg-5.png" },
+    { name: "Abdelmottalib Qiouami", img: "/team-members/lwjoh/Abdelmottalib Qiouami.jpg", background: "/team-members/bg/bg-6.png" },
+    { name: "Othmane BOUCHTA", img: "/team-members/lwjoh/Othmane BOUCHTA.JPG", background: "/team-members/bg/bg-6.png" },
+    { name: "Said Oubella", img: "/team-members/lwjoh/Said Oubella.jpg", background: "/team-members/bg/bg-6.png" },
+    { name: "Younes Bouddou", img: "/team-members/lwjoh/Younes Bouddou.JPG", background: "/team-members/bg/bg-6.png" },
   ];
 
   useEffect(() => {
@@ -64,32 +88,32 @@ const Spotlight = () => {
         imagesContainer.innerHTML = "";
         imageElements.length = 0;
 
-      spotlightItems.forEach((item, index) => {
-        const titleElement = document.createElement("h1");
-        titleElement.textContent = item.name;
-        if (index === 0) titleElement.style.opacity = "1";
-        titlesContainer.appendChild(titleElement);
+        spotlightItems.forEach((item, index) => {
+          const titleElement = document.createElement("h1");
+          titleElement.textContent = item.name;
+          if (index === 0) titleElement.style.opacity = "1";
+          titlesContainer.appendChild(titleElement);
 
-        const imgWrapper = document.createElement("div");
-        imgWrapper.className = "spotlight-img";
-        const imgElement = document.createElement("img");
-        imgElement.src = item.img;
-        imgElement.alt = "";
-        imgWrapper.appendChild(imgElement);
-        imagesContainer.appendChild(imgWrapper);
-        imageElements.push(imgWrapper);
-      });
+          const imgWrapper = document.createElement("div");
+          imgWrapper.className = "spotlight-img";
+          const imgElement = document.createElement("img");
+          imgElement.src = item.img;
+          imgElement.alt = "";
+          imgWrapper.appendChild(imgElement);
+          imagesContainer.appendChild(imgWrapper);
+          imageElements.push(imgWrapper);
+        });
 
-      const titleElements = titlesContainer.querySelectorAll("h1");
-      titleElementsRef.current = titleElements;
+        const titleElements = titlesContainer.querySelectorAll("h1");
+        titleElementsRef.current = titleElements;
 
-      if (titleElements.length === 0) {
-        return false;
-      }
+        if (titleElements.length === 0) {
+          return false;
+        }
 
         return true;
       } catch (error) {
-        console.warn('Spotlight initialization error:', error);
+        // console.warn('Spotlight initialization error:', error);
         return false;
       }
     };
@@ -282,7 +306,7 @@ const Spotlight = () => {
           scrollTriggerRef.current.kill();
           scrollTriggerRef.current = null;
         }
-        
+
         // Kill any remaining GSAP animations
         if (imageElementsRef.current.length > 0) {
           gsap.killTweensOf(imageElementsRef.current);
@@ -293,21 +317,22 @@ const Spotlight = () => {
         if (introTextElementsRef.current.length > 0) {
           gsap.killTweensOf(introTextElementsRef.current);
         }
-        
+
         // Clear all refs
         imageElementsRef.current = [];
         titleElementsRef.current = [];
         introTextElementsRef.current = [];
-        
+
         // Kill all ScrollTriggers to be safe
         ScrollTrigger.getAll().forEach((trigger) => {
           if (trigger.trigger && trigger.trigger.closest('.spotlight')) {
             trigger.kill();
           }
         });
-        
+
       } catch (error) {
-        console.warn('Spotlight cleanup error:', error);
+        // console.warn('Spotlight cleanup error:', error);
+        return false;
       }
     };
   }, []);

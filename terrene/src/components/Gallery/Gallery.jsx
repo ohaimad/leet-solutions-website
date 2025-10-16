@@ -305,7 +305,7 @@ export default function Gallery() {
         img.onerror = function () {
           // Fallback to the first available image
           this.src = '/team-members/Ahmed el montassir.jpg';
-          console.warn(`Image not found for ${member.name}, using fallback`);
+          // console.warn(`Image not found for ${member.name}, using fallback`);
         };
 
         // Store member data in the item element for later use
