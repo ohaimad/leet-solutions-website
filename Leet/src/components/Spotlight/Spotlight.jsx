@@ -26,11 +26,11 @@ const Spotlight = () => {
   };
 
   const spotlightItems = [
-    { name: "Oussama Krich", img: "/team-members/lwjoh/oussama krich.jpg", background: "/team-members/bg/bg-5.png" },
+    { name: "Oussama Krich", img: "/team-members/lwjoh/Oussama Krich.jpg", background: "/team-members/bg/bg-5.png" },
     { name: "Brahim Chifour", img: "/team-members/lwjoh/brahim chifour.jpg", background: "/team-members/bg/bg-5.png" },
     { name: "Yahya Rhiba", img: "/team-members/lwjoh/Yahya Rhiba.png", background: "/team-members/bg/bg-5.png" },
     { name: "Otmane Haimad", img: "/team-members/lwjoh/otmane haimad.JPG", background: "/team-members/bg/bg-5.png" },
-    { name: "Abdsamie Elbrahmi", img: "/team-members/lwjoh/abdsamie elbrahmi.jpeg", background: "/team-members/bg/bg-5.png" },
+    { name: "Abdsamie Elbrahmi", img: "/team-members/lwjoh/Abdsamie Elbrahmi.jpeg", background: "/team-members/bg/bg-5.png" },
     { name: "Yassine Oubihi", img: "/team-members/lwjoh/Yassine Oubihi.jpeg", background: "/team-members/bg/bg-5.png" },
     { name: "Houda Bouhsis", img: "/team-members/lwjoh/Houda Bouhsis.jpeg", background: "/team-members/bg/bg-5.png" },
     { name: "Kaoutar Tbatou", img: "/team-members/lwjoh/Kaoutar Tbatou.jpeg", background: "/team-members/bg/bg-5.png" },
@@ -55,7 +55,7 @@ const Spotlight = () => {
     { name: "Mohamed Yamani", img: "/team-members/lwjoh/Mohamed Yamani.png", background: "/team-members/bg/bg-6.png" },
 
     { name: "Abdellah Moukhless", img: "/team-members/lwjoh/Abdellah Moukhless.jpeg", background: "/team-members/bg/bg-8.png" },
-  
+
     { name: "Oussama Mohamed", img: "/team-members/lwjoh/Oussama Mohamed.png", background: "/team-members/bg/bg-7.png" },
   ];
 
