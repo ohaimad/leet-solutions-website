@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  leet-website:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    container_name: leet-website
+    ports:
+      - "3001:3000"  # Map host port 3001 to container port 3000
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+      - NEXT_PUBLIC_API_URL=https://leetsolutions.ma/
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
