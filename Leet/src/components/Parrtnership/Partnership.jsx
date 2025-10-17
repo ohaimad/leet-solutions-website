@@ -7,12 +7,13 @@ const Partnership = () => {
     const logos = [
         { src: '/logos/1337-green.png', alt: '1337 School', title: '1337 School' },
         { src: '/logos/LEET.svg', alt: 'LEET Solutions', title: 'LEET Solutions' },
-        { src: '/logos/terrene-logo.png', alt: 'Terrene', title: 'Terrene' },
-        { src: '/logos/Ai.svg', alt: 'AI Technology', title: 'AI Technology' },
-        { src: '/logos/Cyber.svg', alt: 'Cyber Security', title: 'Cyber Security' },
+        { src: '/logos/Ai.svg', alt: 'AI Solutions', title: 'AI Solutions' },
+        { src: '/logos/AR.svg', alt: 'AR Technology', title: 'AR Technology' },
+        { src: '/logos/Cyber.svg', alt: 'Cybersecurity', title: 'Cybersecurity' },
         { src: '/logos/dev.svg', alt: 'Development', title: 'Development' },
-        { src: '/logos/VR.svg', alt: 'Virtual Reality', title: 'Virtual Reality' },
-        { src: '/logos/AR.svg', alt: 'Augmented Reality', title: 'Augmented Reality' },
+        { src: '/logos/VR.svg', alt: 'VR Solutions', title: 'VR Solutions' },
+        { src: '/logos/terrene-logo.png', alt: 'Terrene', title: 'Terrene' },
+        { src: '/logos/terrene-logo.png', alt: 'Terrene', title: 'Terrene' },
     ];
 
     return (
@@ -29,11 +30,9 @@ const Partnership = () => {
                     </Copy>
                 </div>
             </div>
-            <div >
                 <LogoLoop
                     logos={logos}
                 />
-            </div>
         </section>
     );
 };

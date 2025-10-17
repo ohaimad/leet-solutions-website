@@ -2,8 +2,8 @@ import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 
 const ANIMATION_CONFIG = {
   SMOOTH_TAU: 0.25,
-  MIN_COPIES: 2,
-  COPY_HEADROOM: 2
+  MIN_COPIES: 4,
+  COPY_HEADROOM: 4
 };
 
 const toCssLength = value => typeof value === 'number' ? `${value}px` : (value ?? undefined);
@@ -149,7 +149,7 @@ const useAnimationLoop = (
 };
 
 export const LogoLoop = React.memo(({
-  logos = [], // Add default empty array
+  logos = [],
   speed = 120,
   direction = 'left',
   width = '100%',
@@ -297,7 +297,7 @@ export const LogoLoop = React.memo(({
     if (!Array.isArray(logos) || logos.length === 0) {
       return [];
     }
-    
+
     return Array.from({ length: copyCount }, (_, copyIndex) => (
       <ul
         className="flex items-center"
