@@ -20,46 +20,48 @@ const Spotlight = () => {
 
   // NOTE: These values are interconnected - when speed changes, it affects when images finish their movement, which also affects the gap between images. When you change the number of items in spotlightItems array, you'll need to adjust these config settings together. Test different combinations until you find the right balance that looks good.
   const config = {
-    gap: 0.027,
+    gap: 0.025,
     speed: 0.20,
     arcRadius: 400,
   };
 
   const spotlightItems = [
-    { name: "Oussama Krich", img: "/team-members/lwjoh/Oussama Krich.jpg", background: "/team-members/bg/bg-5.png" },
-    { name: "Brahim Chifour", img: "/team-members/lwjoh/brahim chifour.jpg", background: "/team-members/bg/bg-5.png" },
-    { name: "Yahya Rhiba", img: "/team-members/lwjoh/Yahya Rhiba.png", background: "/team-members/bg/bg-5.png" },
-    { name: "Otmane Haimad", img: "/team-members/lwjoh/otmane haimad.JPG", background: "/team-members/bg/bg-5.png" },
-    { name: "Abdsamie elbrahmi", img: "/team-members/lwjoh/Abdsamie elbrahmi.jpeg", background: "/team-members/bg/bg-5.png" },
-    { name: "Yassine Oubihi", img: "/team-members/lwjoh/Yassine Oubihi.jpeg", background: "/team-members/bg/bg-5.png" },
-    { name: "Houda Bouhsis", img: "/team-members/lwjoh/Houda Bouhsis.jpeg", background: "/team-members/bg/bg-5.png" },
-    { name: "Khalid Belyazid", img: "/team-members/lwjoh/Khalid Belyazid.jpeg", background: "/team-members/bg/bg-5.png" },
-    { name: "Marouane Doulahian", img: "/team-members/lwjoh/Marouane Doulahian.jpeg", background: "/team-members/bg/bg-5.png" },
     { name: "Abdelkader Outem", img: "/team-members/lwjoh/Abdelkader Outem.jpg", background: "/team-members/bg/bg-5.png" },
-    { name: "Nabil Hayoun", img: "/team-members/lwjoh/Nabil Hayoun.jpg", background: "/team-members/bg/bg-5.png" },
+    { name: "Abdsamie elbrahmi", img: "/team-members/lwjoh/Abdsamie elbrahmi.jpeg", background: "/team-members/bg/bg-5.png" },
+    { name: "Achraf Rian", img: "/team-members/lwjoh/Achraf Rian.jpeg", background: "/team-members/bg/bg-5.png" },
     { name: "Anas Mejdoub", img: "/team-members/lwjoh/Anas Mejdoub.jpeg", background: "/team-members/bg/bg-5.png" },
+    { name: "Aymen Errafig", img: "/team-members/lwjoh/aymen errafig.jpg", background: "/team-members/bg/bg-5.png" },
+    { name: "Brahim Chifour", img: "/team-members/lwjoh/brahim chifour.jpg", background: "/team-members/bg/bg-5.png" },
+    { name: "Houda Bouhsis", img: "/team-members/lwjoh/Houda Bouhsis.jpeg", background: "/team-members/bg/bg-5.png" },
+    { name: "Khalid Belyazid", img: "/team-members/lwjoh/Khalid Belyazid.png", background: "/team-members/bg/bg-5.png" },
+    { name: "Marouane Doulahian", img: "/team-members/lwjoh/Marouane Doulahian.jpeg", background: "/team-members/bg/bg-5.png" },
+    { name: "Nabil Hayoun", img: "/team-members/lwjoh/Nabil Hayoun.jpg", background: "/team-members/bg/bg-5.png" },
+    { name: "Otmane Haimad", img: "/team-members/lwjoh/otmane haimad.JPG", background: "/team-members/bg/bg-5.png" },
     { name: "Oussam Ezzaoui", img: "/team-members/lwjoh/Oussam Ezzaoui.png", background: "/team-members/bg/bg-5.png" },
+    { name: "Oussama Krich", img: "/team-members/lwjoh/Oussama Krich.jpg", background: "/team-members/bg/bg-5.png" },
     { name: "Sara Ennaama", img: "/team-members/lwjoh/Sara Ennaama.jpg", background: "/team-members/bg/bg-5.png" },
     { name: "Slimane Chanchoul", img: "/team-members/lwjoh/Slimane Chanchoul.png", background: "/team-members/bg/bg-5.png" },
-    { name: "Aymen Errafig", img: "/team-members/lwjoh/aymen errafig.jpg", background: "/team-members/bg/bg-5.png" },
+    { name: "Yahya Rhiba", img: "/team-members/lwjoh/Yahya Rhiba.png", background: "/team-members/bg/bg-5.png" },
+    { name: "Yassine Oubihi", img: "/team-members/lwjoh/Yassine Oubihi.jpeg", background: "/team-members/bg/bg-5.png" },
     { name: "Zakaria Moumen", img: "/team-members/lwjoh/Zakaria Moumen.jpg", background: "/team-members/bg/bg-5.png" },
 
+    { name: "Abdelhadi Sabani", img: "/team-members/lwjoh/Abdelhadi Sabani.jpeg", background: "/team-members/bg/bg-6.png" },
     { name: "Abdelmottalib Qiouami", img: "/team-members/lwjoh/Abdelmottalib Qiouami.jpg", background: "/team-members/bg/bg-6.png" },
     { name: "Kaoutar Tbatou", img: "/team-members/lwjoh/Kaoutar Tbatou.jpeg", background: "/team-members/bg/bg-6.png" },
+    { name: "Mohamed Yamani", img: "/team-members/lwjoh/Mohamed Yamani.png", background: "/team-members/bg/bg-6.png" },
     { name: "Othmane BOUCHTA", img: "/team-members/lwjoh/Othmane BOUCHTA.JPG", background: "/team-members/bg/bg-6.png" },
-    { name: "Abdelhadi Sabani", img: "/team-members/lwjoh/Abdelhadi Sabani.jpeg", background: "/team-members/bg/bg-6.png" },
+    { name: "Rida El Mazary", img: "/team-members/lwjoh/Rida El Mazary.jpeg", background: "/team-members/bg/bg-6.png" },
     { name: "Said Oubella", img: "/team-members/lwjoh/Said Oubella.jpg", background: "/team-members/bg/bg-6.png" },
     { name: "Younes Bouddou", img: "/team-members/lwjoh/Younes Bouddou.JPG", background: "/team-members/bg/bg-6.png" },
     { name: "Zouhair Ouddach", img: "/team-members/lwjoh/Zouhair Ouddach.jpg", background: "/team-members/bg/bg-6.png" },
-    { name: "Rida El Mazary", img: "/team-members/lwjoh/Rida El Mazary.jpeg", background: "/team-members/bg/bg-6.png" },
-    { name: "Mohamed Yamani", img: "/team-members/lwjoh/Mohamed Yamani.png", background: "/team-members/bg/bg-6.png" },
 
     { name: "Abdellah Moukhless", img: "/team-members/lwjoh/Abdellah Moukhless.jpeg", background: "/team-members/bg/bg-8.png" },
-    { name: "El Mehdi El Islami", img: "/team-members/lwjoh/El Mehdi El Islami.jpg", background: "/team-members/bg/bg-8.png" },
     { name: "Adam Charai", img: "/team-members/lwjoh/Adam Charai.jpg", background: "/team-members/bg/bg-8.png" },
+    { name: "El Mehdi El Islami", img: "/team-members/lwjoh/El Mehdi El Islami.jpg", background: "/team-members/bg/bg-8.png" },
+    { name: "Youssef Lyoussfi", img: "/team-members/lwjoh/Youssef Lyoussfi.jpeg", background: "/team-members/bg/bg-8.png" },
 
-    { name: "Oussama Mohamed", img: "/team-members/lwjoh/Oussama Mohamed.png", background: "/team-members/bg/bg-7.png" },
     { name: "Malik", img: "/team-members/lwjoh/Malik.png", background: "/team-members/bg/bg-7.png" },
+    { name: "Oussama Mohamed", img: "/team-members/lwjoh/Oussama Mohamed.png", background: "/team-members/bg/bg-7.png" },
   ];
 
   useEffect(() => {
