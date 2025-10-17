@@ -16,6 +16,7 @@ import FeaturedProjects from "@/components/FeaturedProjects/FeaturedProjects";
 import ClientReviews from "@/components/ClientReviews/ClientReviews";
 import CTAWindow from "@/components/CTAWindow/CTAWindow";
 import Copy from "@/components/Copy/Copy";
+import Partnership from "@/components/Parrtnership/Partnership";
 
 let isInitialLoad = true;
 gsap.registerPlugin(ScrollTrigger, CustomEase);
@@ -259,13 +260,13 @@ export default function Home() {
             <div className="stat">
               <div className="stat-count">
                 <Copy delay={0.1}>
-                  <h2>80+</h2>
+                  <h2>06+</h2>
                 </Copy>
               </div>
               <div className="stat-divider"></div>
               <div className="stat-info">
                 <Copy delay={0.15}>
-                  <p>Client satisfied</p>
+                  <p>Partnerships</p>
                 </Copy>
               </div>
             </div>
@@ -377,6 +378,9 @@ export default function Home() {
           <ClientReviews />
         </div>
       </section>
+    
+      <Partnership />
+    
       <section className="gallery-callout">
         <div className="container">
           <div className="gallery-callout-col">

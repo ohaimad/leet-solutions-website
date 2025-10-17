@@ -67,7 +67,7 @@ const page = () => {
               <div className="fact">
                 <Copy delay={0.2}>
                   <p>Partnerships</p>
-                  <h2>04+</h2>
+                  <h2>06+</h2>
                 </Copy>
               </div>
             </div>

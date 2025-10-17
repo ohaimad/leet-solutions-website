@@ -87,13 +87,11 @@
   width: 100%;
   height: 100%;
   overflow: hidden;
-  clip-path: polygon(
-    50svh 0px,
-    0px 50%,
-    50svh 100%,
-    100% calc(100% + 100svh),
-    100% -100svh
-  );
+  clip-path: polygon(50svh 0px,
+      0px 50%,
+      50svh 100%,
+      100% calc(100% + 100svh),
+      100% -100svh);
   --before-opacity: 0;
   --after-opacity: 0;
 }
@@ -160,7 +158,7 @@
 .spotlight-img {
   position: absolute;
   width: 200px;
-  height: 200px;
+  height: 180px;
   /* border: 1px solid var(--base-600); */
   will-change: transform;
   border-radius: 1rem;
@@ -192,6 +190,7 @@
 }
 
 @media (max-width: 1000px) {
+
   .spotlight-titles,
   .spotlight-titles-container::before,
   .spotlight-titles-container::after {
