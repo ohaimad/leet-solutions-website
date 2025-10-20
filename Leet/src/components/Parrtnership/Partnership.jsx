@@ -16,8 +16,8 @@ const Partnership = () => {
     ];
 
     return (
-        <section className="border">
-            <div className="flex flex-col items-center justify-center text-center py-16">
+        <section className="py-32">
+            <div className="flex flex-col items-center justify-center text-center mb-20">
                 <Copy delay={0.1}>
                     <p style={{ color: '#AFDCB1' }} className="mb-4">Partnerships</p>
                 </Copy>
