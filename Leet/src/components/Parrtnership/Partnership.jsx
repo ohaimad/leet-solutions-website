@@ -5,21 +5,18 @@ import Copy from "../Copy/Copy";
 
 const Partnership = () => {
     const logos = [
-        { src: '/logos/1337-green.png', alt: '1337 School', title: '1337 School' },
-        { src: '/logos/LEET.svg', alt: 'LEET Solutions', title: 'LEET Solutions' },
-        { src: '/logos/1337-green.png', alt: '1337 School', title: '1337 School' },
-        { src: '/logos/LEET.svg', alt: 'LEET Solutions', title: 'LEET Solutions' },
-        { src: '/logos/1337-green.png', alt: '1337 School', title: '1337 School' },
-        { src: '/logos/LEET.svg', alt: 'LEET Solutions', title: 'LEET Solutions' },
-        { src: '/logos/1337-green.png', alt: '1337 School', title: '1337 School' },
-        { src: '/logos/LEET.svg', alt: 'LEET Solutions', title: 'LEET Solutions' },
-        { src: '/logos/1337-green.png', alt: '1337 School', title: '1337 School' },
-        { src: '/logos/LEET.svg', alt: 'LEET Solutions', title: 'LEET Solutions' },
-
+        { src: '/Partnership/Apm.svg', alt: 'APM', title: 'APM' },
+        { src: '/Partnership/Tangermed.svg', alt: 'Tanger Med', title: 'Tanger Med' },
+        { src: '/Partnership/UM6P.svg', alt: 'UM6P', title: 'UM6P' },
+        { src: '/Partnership/marsa-maroc-seeklogo.svg', alt: 'Marsa Maroc', title: 'Marsa Maroc' },
+        { src: '/Partnership/ocp.svg', alt: 'OCP', title: 'OCP' },
+        { src: '/Partnership/reneau.svg', alt: 'Reneau', title: 'Reneau' },
+        // { src: '/Partnership/te-connect.png', alt: 'TE Connect', title: 'TE Connect' },
+        { src: '/Partnership/wizara.png', alt: 'Wizara', title: 'Wizara' },
     ];
 
     return (
-        <section className="">
+        <section className="border">
             <div className="flex flex-col items-center justify-center text-center py-16">
                 <Copy delay={0.1}>
                     <p style={{ color: '#AFDCB1' }} className="mb-4">Partnerships</p>
@@ -30,6 +27,14 @@ const Partnership = () => {
             </div>
             <LogoLoop
                 logos={logos}
+                speed={80}
+                direction="left"
+                pauseOnHover={true}
+                logoHeight={50}
+                gap={60}
+                fadeOut={false}
+                width="100%"
+                className="partnership-logos"
             />
         </section >
     );

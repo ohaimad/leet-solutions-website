@@ -37,7 +37,7 @@ const Spotlight = () => {
     { name: "Marouane Doulahian", img: "/team-members/lwjoh/Marouane Doulahian.jpeg", background: "/team-members/bg/bg-5.png" },
     { name: "Nabil Hayoun", img: "/team-members/lwjoh/Nabil Hayoun.jpg", background: "/team-members/bg/bg-5.png" },
     { name: "Otmane Haimad", img: "/team-members/lwjoh/otmane haimad.JPG", background: "/team-members/bg/bg-5.png" },
-    { name: "Oussam Ezzaoui", img: "/team-members/lwjoh/Oussam Ezzaoui.png", background: "/team-members/bg/bg-5.png" },
+    { name: "Oussama Ezzaou", img: "/team-members/lwjoh/Oussama Ezzaou.png", background: "/team-members/bg/bg-5.png" },
     { name: "Oussama Krich", img: "/team-members/lwjoh/Oussama Krich.jpg", background: "/team-members/bg/bg-5.png" },
     { name: "Sara Ennaama", img: "/team-members/lwjoh/Sara Ennaama.jpg", background: "/team-members/bg/bg-5.png" },
     { name: "Slimane Chanchoul", img: "/team-members/lwjoh/Slimane Chanchoul.png", background: "/team-members/bg/bg-5.png" },

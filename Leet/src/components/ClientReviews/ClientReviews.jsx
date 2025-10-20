@@ -306,7 +306,7 @@ const ClientReviews = () => {
                     ref={(el) => (clientInfoRefs.current[index] = el)}
                     style={{ opacity: 0 }}
                   >
-                    <p className="client-name md">{client.name}</p>
+                    <p className="client-name">{client.name}</p>
                     <p className="client-title">{client.title}</p>
                   </div>
                 )}

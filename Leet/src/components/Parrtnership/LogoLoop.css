@@ -118,6 +118,23 @@
   );
 }
 
+/* Partnership logos styling */
+.partnership-logos .logoloop__item img {
+  filter: brightness(0) saturate(100%) invert(100%);
+  height: var(--logoloop-logoHeight);
+  width: auto;
+  max-width: 120px;
+  min-width: 80px;
+  object-fit: contain;
+  opacity: 0.8;
+  transition: opacity 0.3s ease, filter 0.3s ease;
+}
+
+.partnership-logos .logoloop__item:hover img {
+  opacity: 1;
+  filter: brightness(0) saturate(100%) invert(85%);
+}
+
 @media (prefers-reduced-motion: reduce) {
   .logoloop__track {
     transform: translate3d(0, 0, 0) !important;
